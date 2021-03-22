@@ -13,7 +13,7 @@
         </div>
 
             <h2 class="heading fa-2x">{{$document->type}}</h2>
-    
+
 
         <div class="field">
             <a href="/documents/download/{{$document->file}}">Download</a>
