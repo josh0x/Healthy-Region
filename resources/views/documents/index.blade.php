@@ -16,12 +16,9 @@
     </form>
 
     @foreach($documents as $document)
-        <div class="field">
+        <div class="field box">
             <h1><a href="/documents/{{$document->id}}"> {{$document->title}}</a></h1>
             <h2>{{$document->excerpt}}</h2>
-            <h2>{{$document->type}}</h2>
-            <h2><a href="{{$document->file}}">File </a> </h2>
-
         </div>
     @endforeach
 
