@@ -36,13 +36,7 @@
                         <option value="research protocol">Research Protocol</option>
                     </select>
                 </div>
-                <div>
-                    @if($errors->has('type'))
-                        <p class=" is-danger">{{$errors->first('type')}}</p>
-                    @endif
-                </div>
-            </div>
-        </div>
+
 
         <div class="field">
             <label for="file" class="label">Upload File</label>
