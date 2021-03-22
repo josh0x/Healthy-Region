@@ -13,7 +13,11 @@
         </div>
 
             <h2 class="heading fa-2x">{{$document->type}}</h2>
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> 11d5fee58c2e045127855b064f0789a0b7f4a61b
 
         <div class="field">
             <a href="/documents/download/{{$document->file}}">Download</a>
