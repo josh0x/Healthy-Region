@@ -8,10 +8,12 @@
 
     </section>
 
-        <div class="field">
+        <div class="field box">
             <h1 class="heading">{{$document->excerpt}}</h1>
-            <h2 class="heading">{{$document->type}}</h2>
         </div>
+
+            <h2 class="heading fa-2x">{{$document->type}}</h2>
+    
 
         <div class="field">
             <a href="/documents/download/{{$document->file}}">Download</a>

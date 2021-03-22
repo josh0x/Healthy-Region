@@ -24,7 +24,7 @@ class DocumentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Document $document)
     {
         return view('documents.create');
     }
