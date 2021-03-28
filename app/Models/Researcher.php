@@ -8,9 +8,4 @@ use Illuminate\Database\Eloquent\Model;
 class Researcher extends Model
 {
     use HasFactory;
-    protected $guarded=[];
-
-    public function document () {
-        return $this->hasMany(Document::class);
-    }
 }

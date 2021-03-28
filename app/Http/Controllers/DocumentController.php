@@ -14,9 +14,7 @@ class DocumentController extends Controller
      */
     public function index()
     {
-        $document = Document::latest()->get();
-
-        return view('documents.index', ['documents' => $document]);
+        return view('documents.index');
     }
 
     /**
@@ -24,7 +22,7 @@ class DocumentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Document $document)
+    public function create()
     {
         return view('documents.create');
     }
@@ -35,42 +33,10 @@ class DocumentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store( Request $request)
+    public function store(Request $request)
     {
-        $document = new Document();
-
-        $document->title = request ('title');
-        $document->excerpt = request ('excerpt');
-        $document->type = request ('type');
-        $document->file = $request->file('file')->store('');
-        $document->save();
-
-        return  redirect('documents');
-
+        //
     }
-    /**
-     * Display the specified resource.
-     *
-     */
-    public function download($file)
-    {
-        // Check if file exists in app/storage/file folder
-        $file_path = storage_path() .'/file/'. $file;
-        if (file_exists($file_path))
-        {
-            // Send Download
-            return Response::download($file_path, $file, [
-                'Content-Length: '. filesize($file_path)
-            ]);
-        }
-        else
-        {
-            // Error
-            exit('Requested file does not exist on our server!');
-        }
-
-    }
-
 
     /**
      * Display the specified resource.
@@ -80,8 +46,7 @@ class DocumentController extends Controller
      */
     public function show(Document $document)
     {
-        return view('documents.show' , ['document' => $document]);
-
+        //
     }
 
     /**
@@ -116,15 +81,5 @@ class DocumentController extends Controller
     public function destroy(Document $document)
     {
         //
-    }
-
-
-    protected function validateDoc ($request) {
-        return $request->validate([
-            'title'=>'required',
-            'excerpt'=>'required',
-            'type'=>'nullable',
-
-        ]);
     }
 }

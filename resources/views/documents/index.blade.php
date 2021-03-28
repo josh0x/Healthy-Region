@@ -1,25 +1,18 @@
-@extends('common.body')
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('Documents') }}
+        </h2>
+    </x-slot>
 
-@section('content')
-    <section class="hero  is-medium  is-bold is-primary">
-        <div class="hero-body is-centered is-primary"
-        > <h1 class="fa-3x"> Documents</h1>
-            <h1 class="is-centered">
-                Here are the documents in the website
-            </h1></div>
-
-    </section>
-
-
-    <form  action="documents/create">
-        <button class="is-warning button"  type="submit">  Create new Document </button>
-    </form>
-
-    @foreach($documents as $document)
-        <div class="field box">
-            <h1><a href="/documents/{{$document->id}}"> {{$document->title}}</a></h1>
-            <h2>{{$document->excerpt}}</h2>
+    <div class="container mx-auto px-4 py-10 flex justify-center">
+        <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col my-2">
+            <div class="block content-center">
+                <a href="/documents/create" class="py-2 px-4 bg-green-500 text-white font-semibold rounded-lg shadow-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-75" type="button">
+                    Upload
+                </a>
+            </div>
         </div>
-    @endforeach
+    </div>
 
-@endsection
+</x-app-layout>

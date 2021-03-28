@@ -1,25 +1,11 @@
-@extends('common.body')
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('Documents') }}
+        </h2>
+    </x-slot>
 
-@section('content')
-    <section class="hero  is-medium  is-bold is-primary">
-        <div class="hero-body is-centered is-primary"
-        > <h1 class="fa-3x"> {{$document->title}}</h1>
-            </div>
 
-    </section>
+    {{-- code --}}
 
-        <div class="field box">
-            <h1 class="heading">{{$document->excerpt}}</h1>
-        </div>
-
-            <h2 class="heading fa-2x">{{$document->type}}</h2>
-    
-
-        <div class="field">
-            <a href="/documents/download/{{$document->file}}">Download</a>
-        </div>
-
-        <div class="field">
-            <iframe src="{{url($document->file)}}"></iframe>
-        </div>
-@endsection
+<x-app-layout>
