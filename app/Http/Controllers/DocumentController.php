@@ -14,6 +14,7 @@ class DocumentController extends Controller
      */
     public function index()
     {
+        // $document = Document::latest(10)->get();
         return view('documents.index');
     }
 
@@ -35,7 +36,16 @@ class DocumentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $document = new Document();
+
+        $document->title = request ('title');
+        $document->excerpt = request ('excerpt');
+        $document->type = request ('type');
+        $document->file = $request->file('file')->store('');
+        $document->save();
+
+        return  redirect('documents');
+
     }
 
     /**
@@ -46,7 +56,7 @@ class DocumentController extends Controller
      */
     public function show(Document $document)
     {
-        //
+        return view('documents.show', ['document' => $document]);
     }
 
     /**
@@ -57,7 +67,7 @@ class DocumentController extends Controller
      */
     public function edit(Document $document)
     {
-        //
+        return view('documents.edit', ['document' => $document]);
     }
 
     /**
@@ -69,7 +79,9 @@ class DocumentController extends Controller
      */
     public function update(Request $request, Document $document)
     {
-        //
+        $document->update($this->validatePost());
+
+        return redirect($document->path());
     }
 
     /**
@@ -80,6 +92,31 @@ class DocumentController extends Controller
      */
     public function destroy(Document $document)
     {
-        //
+        try {
+            $document->delete();
+        } catch (\Exception $e) {
+        }
+        return redirect(route('documents.index'));
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     */
+    public function download($file)
+    {
+        //    code
+    }
+
+     /**
+     * @return array
+     */
+    protected function validateDocument(): array
+    {
+        return request()->validate([
+            'title' => 'required',
+            'excerpt' => 'required',
+            'type' => 'nullable'
+        ]);
     }
 }

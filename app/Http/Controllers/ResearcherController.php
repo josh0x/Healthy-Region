@@ -14,7 +14,9 @@ class ResearcherController extends Controller
      */
     public function index()
     {
-        return view('researchers.index');
+        $researcher = Researcher::latest()->get();
+
+        return view('researchers.index', ['researchers' => $researcher]);
     }
 
     /**
@@ -24,7 +26,7 @@ class ResearcherController extends Controller
      */
     public function create()
     {
-        //
+        return view('researchers.create');
     }
 
     /**
@@ -33,9 +35,10 @@ class ResearcherController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Researcher $researcher,Request $request)
     {
-        //
+        $researcher->create($this->validateResearcher($request));
+        return redirect(route('researcher.index'));
     }
 
     /**
@@ -46,7 +49,7 @@ class ResearcherController extends Controller
      */
     public function show(Researcher $researcher)
     {
-        //
+        return view('researchers.show' , ['researcher' => $researcher]);
     }
 
     /**

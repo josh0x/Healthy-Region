@@ -10,4 +10,19 @@ class Document extends Model
 {
     use HasFactory;
     use Searchable;
+    protected $guarded=[];
+
+    public function documentFactory()
+    {
+        $documents = Document::factory()->count(100)->make();
+    }
+
+    public function researcher()
+    {
+        return $this->belongsTo(Researcher::class); // select * from researcher where document_id =
+    }
+
+    protected $fillable = [
+        'id', 'title', 'excerpt', 'body', 'type'
+    ];
 }

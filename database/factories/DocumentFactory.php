@@ -22,7 +22,10 @@ class DocumentFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'title' => $this->faker->word,
+            'excerpt' => $this->faker->sentence,
+            'file' => $this->faker->word,
+            'type' => $this->faker->word,
         ];
     }
 }

@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Researcher;
 use Illuminate\Database\Seeder;
 
 class ResearcherSeeder extends Seeder
@@ -13,6 +14,6 @@ class ResearcherSeeder extends Seeder
      */
     public function run()
     {
-        //
+        Researcher::factory(3)->create();
     }
 }
