@@ -15,12 +15,13 @@ class CreateDocumentsTable extends Migration
     {
         Schema::create('documents', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->String('title');
-            $table->foreignId('researcher_id')
+            $table->foreignId('user_id')
                 ->nullable()
                 ->constrained();
+                // ->onDelete('cascade');  child data gets deleted when the parent data is deleted.
+            $table->String('title');
             $table->text('excerpt');
-            $table->string('file');
+            $table->string('file')->nullable();
             $table->string('type');
             $table->timestamps();
         });

@@ -1,11 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Models\Researcher;
+use App\Models\User;
 use Illuminate\Http\Request;
 
-class ResearcherController extends Controller
+
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,10 @@ class ResearcherController extends Controller
      */
     public function index()
     {
-        $researcher = Researcher::latest()->get();
+        $users = User::get();
 
-        return view('researchers.index', ['researchers' => $researcher]);
+        return view('users.index', ['users' => $users]);
+    
     }
 
     /**
@@ -26,7 +27,7 @@ class ResearcherController extends Controller
      */
     public function create()
     {
-        return view('researchers.create');
+        return view('users.create');
     }
 
     /**
@@ -35,30 +36,30 @@ class ResearcherController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Researcher $researcher,Request $request)
+    public function store(User $user, Request $request)
     {
-        $researcher->create($this->validateResearcher($request));
-        return redirect(route('researcher.index'));
+        $user->create($this->validateUser($request));
+        return redirect(route('user.index'));
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Researcher  $researcher
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Researcher $researcher)
+    public function show(User $user)
     {
-        return view('researchers.show' , ['researcher' => $researcher]);
+        // return view('users.show' , ['user' => $user]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Researcher  $researcher
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Researcher $researcher)
+    public function edit($id)
     {
         //
     }
@@ -67,10 +68,10 @@ class ResearcherController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Researcher  $researcher
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Researcher $researcher)
+    public function update(Request $request, User $user)
     {
         //
     }
@@ -78,10 +79,10 @@ class ResearcherController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Researcher  $researcher
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Researcher $researcher)
+    public function destroy($id)
     {
         //
     }

@@ -22,10 +22,9 @@ class DocumentFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->word,
-            'excerpt' => $this->faker->sentence,
-            'file' => $this->faker->word,
-            'type' => $this->faker->word,
+            'user_id' => 'factory(\App\Models\User::class)',
+            'title' => $this->faker->sentence,
+            'excerpt' => $this->faker->sentence
         ];
     }
 }

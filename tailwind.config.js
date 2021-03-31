@@ -8,10 +8,6 @@ module.exports = {
         './resources/views/**/*.blade.php',
     ],
 
-    plugins: [
-        require('@tailwindcss/custom-forms'),
-      ],
-
     theme: {
         extend: {
             fontFamily: {

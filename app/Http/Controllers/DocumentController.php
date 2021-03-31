@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 class DocumentController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +16,9 @@ class DocumentController extends Controller
     public function index()
     {
         // $document = Document::latest(10)->get();
-        return view('documents.index');
+        $users = Document::get();
+
+        return view('documents.index', ['users' => $users]);
     }
 
     /**
@@ -45,7 +48,6 @@ class DocumentController extends Controller
         $document->save();
 
         return  redirect('documents');
-
     }
 
     /**
@@ -99,10 +101,6 @@ class DocumentController extends Controller
         return redirect(route('documents.index'));
     }
 
-    /**
-     * Display the specified resource.
-     *
-     */
     public function download($file)
     {
         //    code

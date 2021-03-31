@@ -1,8 +1,8 @@
 <?php
 
-use App\Http\Controllers\ResearcherController;
-use App\Http\Controllers\DocumentController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DocumentController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +23,5 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-Route::resource('researchers', ResearcherController::class);
 Route::resource('documents', DocumentController::class);
-
+Route::resource('users', UserController::class);
