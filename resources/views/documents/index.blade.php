@@ -33,6 +33,9 @@
                   </tr>
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
+                @foreach($users as $users)
+
+                    @foreach($docs as $docs)
                     <tr>
                         <td class="px-6 py-4 whitespace-nowrap">
                             <div class="flex items-center">
@@ -41,7 +44,7 @@
                                 </div>
                                 <div class="ml-4">
                                     <div class="text-sm font-medium text-gray-900">
-                                    Joshua Bowers
+                                        {{$users->name}}
                                     </div>
                                 <div class="text-sm text-gray-500">
                                     {{-- @for ($documents as document) --}}
@@ -52,25 +55,29 @@
                             </div>
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
-                            <div class="text-sm text-gray-900">Healthy Region</div>
-                            <div class="text-sm text-gray-500">Researcher</div>
+
+                                <div class="text-sm text-gray-900">{{$docs->title}}</div>
+                                <div class="text-sm text-gray-500">{{$docs->excerpt}}</div>
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
                             <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                Active
+                                {{$docs->type}}
                             </span>
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                            Admin
+                            {{$docs->created_at}}
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                            <a href="#" class="text-blue-600 hover:text-blue-900">Edit</a>
+                            <a href="/documents/edit/{{$docs->id}}" class="text-blue-600 hover:text-blue-900">Edit</a>
+                        </td>
+
+                        <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                            <a href="/documents/show/{{$docs->id}}" class="text-blue-600 hover:text-blue-900">Show</a>
                         </td>
                   </tr>
-                  <!-- More items... -->
+                    @endforeach
 
-                  <!-- More items... -->
-
+                @endforeach
                 </tbody>
               </table>
             </div>
@@ -78,6 +85,8 @@
         </div>
       </div>
     </div>
+
+
 
     <div class="container mx-auto px-4 py-10 flex justify-center">
         <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col my-2">

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Document;
 use Illuminate\Http\Request;
+use App\Models\user;
 
 class DocumentController extends Controller
 {
@@ -16,9 +17,10 @@ class DocumentController extends Controller
     public function index()
     {
         // $document = Document::latest(10)->get();
-        $users = Document::get();
+        $docs = Document::get();
+        $users = User::get();
 
-        return view('documents.index', ['users' => $users]);
+        return view('documents.index', ['docs' => $docs], ['users' => $users]);
     }
 
     /**

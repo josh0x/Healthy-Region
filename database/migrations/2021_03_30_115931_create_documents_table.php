@@ -17,8 +17,8 @@ class CreateDocumentsTable extends Migration
             $table->bigIncrements('id');
             $table->foreignId('user_id')
                 ->nullable()
-                ->constrained();
-                // ->onDelete('cascade');  child data gets deleted when the parent data is deleted.
+                ->constrained()
+                ->onDelete('cascade');
             $table->String('title');
             $table->text('excerpt');
             $table->string('file')->nullable();
