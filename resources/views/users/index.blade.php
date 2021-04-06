@@ -32,10 +32,10 @@
               </tr>
             </thead>
             <tbody class="bg-white divide-y divide-gray-200">
+                @foreach($users as $user)
                 <tr>
                     <td class="px-6 py-4 whitespace-nowrap">
                         <div class="flex items-center">
-                            @foreach($users as $user)
                                 <div class="flex-shrink-0 h-10 w-10">
                                     <img src="images/hz.png" class="h-10 w-10 rounded-full" alt="">
                                 </div>
@@ -47,7 +47,6 @@
                                         {{ $user->email }}
                                     </div>
                                 </div>
-                            @endforeach
                         </div>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap">
@@ -66,7 +65,9 @@
                         <a href="#" class="text-blue-600 hover:text-blue-900">Edit</a>
                     </td>
               </tr>
-              <!-- More items... -->
+                @endforeach
+
+                <!-- More items... -->
 
               <!-- More items... -->
 
