@@ -14,5 +14,11 @@
         </h1>
     </div>
 
+    <div>
+        <h1 class="container mx-auto px-4 py-10 flex justify-center text-black">
+            Type: {{$document->type}}
+        </h1>
+    </div>
+
 
 </x-app-layout>
