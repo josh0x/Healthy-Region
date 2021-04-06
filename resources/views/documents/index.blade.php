@@ -35,7 +35,7 @@
                 <tbody class="bg-white divide-y divide-gray-200">
                 @foreach($users as $users)
 
-                    @foreach($docs as $docs)
+                    @foreach($docs as $doc)
                     <tr>
                         <td class="px-6 py-4 whitespace-nowrap">
                             <div class="flex items-center">
@@ -52,24 +52,23 @@
                             </div>
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
-
-                                <div class="text-sm text-gray-900">{{$docs->title}}</div>
-                                <div class="text-sm text-gray-500">{{$docs->excerpt}}</div>
+                                <div class="text-sm text-gray-900">{{$doc->title}}</div>
+                                <div class="text-sm text-gray-500">{{$doc->excerpt}}</div>
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
                             <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                {{$docs->type}}
+                                {{$doc->type}}
                             </span>
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                            {{$docs->created_at}}
+                            {{$doc->created_at}}
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                            <a href="/documents/edit/{{$docs->id}}" class="text-blue-600 hover:text-blue-900">Edit</a>
+                            <a href="/documents/edit/{{$doc->id}}" class="text-blue-600 hover:text-blue-900">Edit</a>
                         </td>
 
                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                            <a href='{{$docs->path()}}' class="text-blue-600 hover:text-blue-900">Show</a>
+                            <a href='{{$doc->path()}}' class="text-blue-600 hover:text-blue-900">Show</a>
                         </td>
                   </tr>
                     @endforeach
