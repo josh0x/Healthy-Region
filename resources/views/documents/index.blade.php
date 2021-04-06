@@ -40,17 +40,14 @@
                         <td class="px-6 py-4 whitespace-nowrap">
                             <div class="flex items-center">
                                 <div class="flex-shrink-0 h-10 w-10">
-                                    <img src="images/joshua.jpg" class="h-10 w-10 rounded-full" alt="">
+                                    <img src="images/hz.png" class="h-10 w-10 rounded-full" alt="">
                                 </div>
                                 <div class="ml-4">
                                     <div class="text-sm font-medium text-gray-900">
                                         {{$users->name}}
                                     </div>
                                 <div class="text-sm text-gray-500">
-                                    {{-- @for ($documents as document) --}}
-                                        {{-- <div class="text-sm font-medium text-gray-900">
-                                        </div> --}}
-                                    {{-- @endfor --}}
+
                                 </div>
                             </div>
                         </td>
@@ -72,7 +69,7 @@
                         </td>
 
                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                            <a href="/documents/show/{{$docs->id}}" class="text-blue-600 hover:text-blue-900">Show</a>
+                            <a href='{{$docs->path()}}' class="text-blue-600 hover:text-blue-900">Show</a>
                         </td>
                   </tr>
                     @endforeach

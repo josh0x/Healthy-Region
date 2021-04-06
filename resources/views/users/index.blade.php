@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
+            {{ __('Researchers') }}
         </h2>
     </x-slot>
 
@@ -37,7 +37,7 @@
                         <div class="flex items-center">
                             @foreach($users as $user)
                                 <div class="flex-shrink-0 h-10 w-10">
-                                    <img src="images/joshua.jpg" class="h-10 w-10 rounded-full" alt="">
+                                    <img src="images/hz.png" class="h-10 w-10 rounded-full" alt="">
                                 </div>
                                 <div class="ml-4">
                                     <div class="text-md font-medium text-gray-900">
