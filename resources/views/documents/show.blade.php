@@ -5,19 +5,41 @@
         </h2>
     </x-slot>
 
-    <div class="container mx-auto  py-10 flex justify-center bg-blue-600">
-           <h1 class="bg-blue-600">The title of this document is ({{$document->title}})</h1>
-    </div>
-    <div>
-        <h1 class="container mx-auto px-4 py-10 flex justify-center text-black">
-            Excerpt: {{$document->excerpt}}
-        </h1>
-    </div>
-
-    <div>
-        <h1 class="container mx-auto px-4 py-10 flex justify-center text-black">
-            Type: {{$document->type}}
-        </h1>
+    <div class="flex flex-col">
+        <div class="-my-0 overflow-x-auto sm:-mx-6 lg:-mx-8">
+            <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                        <tr>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Title
+                            </th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Excerpt
+                            </th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Type
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                            <tr>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 tracking-wider">
+                                    {{$document->title}}
+                                </th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 tracking-wider">
+                                    {{$document->excerpt}}
+                                </th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 tracking-wider">
+                                    {{$document->type}}
+                                </th>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
 
 
