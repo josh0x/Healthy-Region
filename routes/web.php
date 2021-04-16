@@ -27,3 +27,4 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::resource('documents', DocumentController::class);
 Route::resource('users', UserController::class);
 Route::resource('projects', ProjectController::class);
+

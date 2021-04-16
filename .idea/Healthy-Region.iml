@@ -129,5 +129,6 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="take-home-exam-practice-amjadhz-master" />
   </component>
 </module>

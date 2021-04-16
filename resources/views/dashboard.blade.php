@@ -63,10 +63,7 @@
                                         Joshua Bowers
                                         </div>
                                     <div class="text-sm text-gray-500">
-                                        {{-- @for ($documents as document) --}}
-                                            {{-- <div class="text-sm font-medium text-gray-900">
-                                            </div> --}}
-                                        {{-- @endfor --}}
+
                                     </div>
                                 </div>
                             </td>

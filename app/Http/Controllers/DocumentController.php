@@ -39,15 +39,9 @@ class DocumentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Document $document,Request $request)
     {
-        $document = new Document();
-
-        $document->title = request ('title');
-        $document->excerpt = request ('excerpt');
-        $document->type = request ('type');
-        $document->file = $request->file('file')->store('');
-        $document->save();
+        $document->create($this->validateDocument($request));
 
         return  redirect('documents');
     }
@@ -83,7 +77,7 @@ class DocumentController extends Controller
      */
     public function update(Request $request, Document $document)
     {
-        $document->update($this->validatePost());
+        $document->update($this->validateDocument());
 
         return redirect($document->path());
     }
@@ -96,10 +90,7 @@ class DocumentController extends Controller
      */
     public function destroy(Document $document)
     {
-        try {
-            $document->delete();
-        } catch (\Exception $e) {
-        }
+        $document->delete();
         return redirect(route('documents.index'));
     }
 
@@ -107,6 +98,7 @@ class DocumentController extends Controller
     {
         //    code
     }
+
 
      /**
      * @return array

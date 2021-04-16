@@ -25,7 +25,7 @@
           @endif
 
 
-            <div class="mt-10 bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col my-2">
+            <div class="mt-10 bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col my-2 text-black">
                 <span class="mt-2 flex justify-center text-lg font-bold text-gray-600">Add document</span>
                     <label class="mt-6 block">
                         <span class="text-gray-700">Title</span>
@@ -33,16 +33,16 @@
                         <input class=" form-input px-2 py-2 border-2 rounded-md border-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-300 focus:border-transparent" name="title" rows="2" cols="60" id="title"> {{old('title')}}
 
                             @if($errors->has('title'))
-                                <p class=" is-danger">{{$errors->first('title')}}</p>
+                                <p class=" text-red-400">{{$errors->first('title')}}</p>
                             @endif
 
             <div class="mt-6">
                 <label class="block">
                     <span class="text-gray-700">Excerpt</span>
                 </label>
-                <textarea class="px-2 py-2 border-2 rounded-md border-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-300 focus:border-transparent" name="excerpt" rows="5" cols="60" id="excerpt"> {{old('excerpt')}} </textarea>
+                <textarea class=" px-2 py-2 border-2 rounded-md border-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-300 focus:border-transparent" name="excerpt" rows="5" cols="60" id="excerpt"> {{old('excerpt')}} </textarea>
                     @if($errors->has('excerpt'))
-                        <p class=" is-danger">{{$errors->first('excerpt')}}</p>
+                        <p class="text-red-400">{{$errors->first('excerpt')}}</p>
                     @endif
             </div>
 
@@ -64,6 +64,9 @@
                         </svg>
                         <span class="mt-2 text-base leading-normal">Select a file</span>
                         <input type="file" name="file" id="chooseFile" class="hidden"/>
+                        @if($errors->has('file'))
+                            <p class=" text-red-400">{{$errors->first('file')}}</p>
+                        @endif
                     </label>
             </div>
 
