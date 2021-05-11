@@ -17,7 +17,7 @@ class UserController extends Controller
         $users = User::get();
 
         return view('users.index', ['users' => $users]);
-    
+
     }
 
     /**
