@@ -129,7 +129,7 @@
                                 <img src="\images\hz.png">
                             </div>
                         {{-- code --}}
-            <h1>Test</h1>
+            <h1>Healthy Region</h1>
                 @if (Route::has('login'))
                     <div class="container mx-auto px-2 py-5 flex justify-center">
                         @auth
