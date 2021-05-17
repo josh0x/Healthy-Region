@@ -19,9 +19,14 @@ class Document extends Model
                 return route('documents.show', $this);
     }
 
-    public function user()
+    function user()
     {
         return $this->belongsTo(User::class); // select * from researcher where document_id =
+    }
+
+    public function project()
+    {
+        return $this->belongsTo(project::class); // select * from researcher where document_id =
     }
 
     protected $fillable = [

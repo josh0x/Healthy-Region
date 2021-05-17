@@ -33,7 +33,6 @@
                   </tr>
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
-                @foreach($users as $users)
 
                     @foreach($docs as $doc)
                     <tr>
@@ -44,7 +43,7 @@
                                 </div>
                                 <div class="ml-4">
                                     <div class="text-sm font-medium text-gray-900">
-                                        {{$users->name}}
+                                        {{$doc->user->name}}
                                     </div>
                                 <div class="text-sm text-gray-500">
 
@@ -72,8 +71,6 @@
                         </td>
                   </tr>
                     @endforeach
-
-                @endforeach
                 </tbody>
               </table>
             </div>

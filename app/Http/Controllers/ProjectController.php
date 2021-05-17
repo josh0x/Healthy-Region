@@ -18,7 +18,7 @@ class ProjectController extends Controller
         // $document = Document::latest(10)->get();
         $projects = Project::get();
 
-        return view('projects.index', ['users' => $projects]);
+        return view('projects.index', ['projects' => $projects]);
     }
 
     /**
@@ -28,7 +28,9 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('projects.create');
+        $project = Project::get();
+
+        return view('projects.create', ['project'=>$project]);
     }
 
     /**
@@ -41,10 +43,8 @@ class ProjectController extends Controller
     {
         $project = new Project();
 
-        $project->title = request ('title');
-        $project->excerpt = request ('excerpt');
-        $project->type = request ('type');
-        $project->file = $request->file('file')->store('');
+        $project->name = request ('name');
+        $project->overview = request ('overview');
         $project->save();
 
         return  redirect('projects');
