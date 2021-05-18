@@ -5,13 +5,6 @@
         </h2>
     </x-slot>
 
-    {{-- code --}}
-    {{-- <div class="container mx-auto px-4 py-10 flex justify-center">
-        <div class="hero hero__title">
-        <span class="hello">Hello World</span>
-        <div>
-    </div> --}}
-
     <div class="container mx-auto px-4 py-10 flex justify-center">
         <div class="flex flex-col">
             {{-- Search bar --}}
@@ -27,6 +20,7 @@
                             </div>
                         </div>
                     </form>
+
             {{-- Table --}}
             <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
               <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
