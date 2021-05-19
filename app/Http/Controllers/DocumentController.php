@@ -113,8 +113,8 @@ class DocumentController extends Controller
     protected function validateDocument(): array
     {
         return request()->validate([
-            'title' => 'required',
-            'excerpt' => 'required',
+            'title' => 'required | string | min:5',
+            'excerpt' => 'required | string | min:5',
             'user_id'=>'required',
             'type' => 'nullable'
         ]);
