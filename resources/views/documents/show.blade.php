@@ -25,7 +25,4 @@
         </h1>
     </div>
 
-
-
-
 </x-app-layout>

@@ -5,54 +5,67 @@
         </h2>
     </x-slot>
 
-    <div class="container mx-auto px-4 py-10 flex justify-center">
-        <form action='/projects' class="x-form" method="POST" enctype="multipart/form-data">
-            @csrf
-            @if ($message = Session::get('success'))
-            <div class="alert alert-success">
-                <strong>{{ $message }}</strong>
-            </div>
-          @endif
+        {{-- form --}}
+        <div class="container mx-auto py-20 flex justify-center text-black">
+            <form action='/projects' class="x-form" method="POST" enctype="multipart/form-data">
+                @csrf
+                @if ($message = Session::get('success'))
+                <div class="alert alert-success">
+                    <strong>{{ $message }}</strong>
+                </div>
+            @endif
 
-          @if (count($errors) > 0)
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                      <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-          @endif
+            @if (count($errors) > 0)
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
 
+            <div class="shadow overflow-hidden sm:rounded-md">
+                <div class="p-4 px-4 py-5 bg-white sm:p-8">
+                    <span class=" flex justify-center text-lg font-semibold text-xl text-gray-800 leading-tight">Create Project</span>
 
-            <div class="mt-10 bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col my-2 text-black">
-                <span class="mt-2 flex justify-center text-lg font-bold text-gray-600">Creating Project</span>
-                    <label class="mt-6 block" for="name">
-                        <span class="text-gray-700">Project Name</span>
-                    </label>
-                        <input class=" form-input px-2 py-2 border-2 rounded-md border-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-300 focus:border-transparent" name="name" rows="2" cols="60" id="name"> {{old('name')}}
+                    {{-- project name --}}
 
+                        <label class="mt-6 block" for="name">
+                            <span class="block font-medium text-md text-gray-700">Name</span>
+                        </label>
+
+                        <textarea class="form-input rounded-md shadow-sm mt-1 block w-full" name="name" rows="1" cols="60" id="name"> {{old('name')}} </textarea>
                             @if($errors->has('name'))
-                                <p class=" is-danger">{{$errors->first('name')}}</p>
+                                <p class="text-sm text-red-600">{{$errors->first('name')}}</p>
                             @endif
 
-            <div class="mt-10 bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col my-2 text-black">
-                <label class="mt-6 block" for="overview">
-                    <span class="mt-2 flex justify-center text-lg font-bold text-gray-600">Overview</span>
-                </label>
-                <textarea class=" px-2 py-2 border-2 rounded-md border-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-300 focus:border-transparent" name="overview" rows="5" cols="60" id="overview"> {{old('overview')}} </textarea>
-                    @if($errors->has('overview'))
-                        <p class=" is-danger">{{$errors->first('overview')}}</p>
-                    @endif
-            </div>
+                </div>
 
-            <div class="mt-6 flex items-center justify-center">
-                <button type="submit" name="submit" class="py-1.5 px-3.5 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">Upload</button>
-            </div>
-            </div>
-            </div>
+                <div class="p-4 px-4 py-5 bg-white sm:p-8">
+                    {{-- overview --}}
 
-        </form>
-    </div>
+                    <label class="mt-6 block" for="overview">
+                        <span class="block font-medium text-md text-gray-700">Overview</span>
+                    </label>
+
+                    <textarea class="form-input rounded-md shadow-sm mt-1 block w-full" name="overview" rows="5" cols="60" id="overview"> {{old('overview')}} </textarea>
+                        @if($errors->has('overview'))
+                            <p class="text-sm text-red-600">{{$errors->first('overview')}}</p>
+                        @endif
+
+                </div>
+
+                    {{-- button --}}
+                    <div class="flex items-center justify-center px-4 py-3 bg-gray-50 text-right sm:px-6">
+                        <button class="inline-flex items-center px-4 py-2 bg-blue-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-800 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150">
+                            Upload
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+            </form>
+        </div>
 
 </x-app-layout>
