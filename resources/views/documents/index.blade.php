@@ -29,11 +29,14 @@
                                     Date
                                     </th>
                                     <th scope="col" class="relative px-6 py-3">
-                                    <span class="sr-only">Edit</span>
+                                        <span class="sr-only">Edit</span>
                                     </th>
                                     <th scope="col" class="relative px-6 py-3">
                                         <span class="sr-only">Show</span>
-                                        </th>
+                                    </th>
+                                    <th scope="col" class="relative px-6 py-3">
+                                        <span class="sr-only">Download</span>
+                                    </th>
                                 </tr>
                                 </thead>
                                 {{-- body of table --}}
@@ -69,6 +72,10 @@
 
                                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                             <a href='{{$doc->path()}}' class="text-blue-600 hover:text-blue-900">Show</a>
+                                        </td>
+
+                                        <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                            <a href class="text-blue-600 hover:text-blue-900">Downlaod</a>
                                         </td>
                                     </tr>
                                     @endforeach

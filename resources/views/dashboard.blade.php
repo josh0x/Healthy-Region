@@ -49,6 +49,12 @@
                         <th scope="col" class="relative px-6 py-3">
                           <span class="sr-only">Edit</span>
                         </th>
+                        <th scope="col" class="relative px-6 py-3">
+                            <span class="sr-only">Show</span>
+                        </th>
+                        <th scope="col" class="relative px-6 py-3">
+                            <span class="sr-only">Download</span>
+                        </th>
                       </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
@@ -80,6 +86,13 @@
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                 <a href="#" class="text-blue-600 hover:text-blue-900">Edit</a>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                <a href="#" class="text-blue-600 hover:text-blue-900">Show</a>
+                            </td>
+
+                            <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                <a href class="text-blue-600 hover:text-blue-900">Downlaod</a>
                             </td>
                         </tr>
                       <!-- More items... -->
