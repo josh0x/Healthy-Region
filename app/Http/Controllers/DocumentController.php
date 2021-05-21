@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Document;
 use Illuminate\Http\Request;
 use App\Models\user;
+use App\Models\Project;
+
 
 class DocumentController extends Controller
 {
@@ -30,7 +32,10 @@ class DocumentController extends Controller
      */
     public function create()
     {
-        return view('documents.create');
+        $users = User::get();
+        $projects = Project::get();
+
+        return view('documents.create' , ['users' => $users], ['projects' => $projects]);
     }
 
     /**
@@ -39,10 +44,12 @@ class DocumentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Document $document,Request $request)
+    public function store(Request $request)
     {
-        $document->create($this->validateDocument($request));
-
+        $document = Document::create($this->validateDocument($request));
+        $document->user()->associate(User::find($request->user_id));
+        $document->project()->associate(Project::find($request->project_id));
+        $document->save();
         return  redirect('documents');
     }
 
@@ -108,6 +115,7 @@ class DocumentController extends Controller
         return request()->validate([
             'title' => 'required',
             'excerpt' => 'required',
+            'user_id'=>'required',
             'type' => 'nullable'
         ]);
     }

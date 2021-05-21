@@ -19,6 +19,11 @@ class CreateDocumentsTable extends Migration
                 ->nullable()
                 ->constrained()
                 ->onDelete('cascade');
+
+            $table->foreignId('project_id')
+                ->nullable()
+                ->constrained()
+                ->onDelete('cascade');
             $table->String('title');
             $table->text('excerpt');
             $table->string('file')->nullable();
