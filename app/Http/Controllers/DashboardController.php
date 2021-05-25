@@ -12,5 +12,7 @@ class DashboardController extends Controller
         if (request()->query('query')) {
             dd(request()->query('query'));
         }
+
+        return view('dashboard');
     }
 }

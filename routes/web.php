@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProjectController;
-
+use App\Http\Controllers\DashboardController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,10 +20,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+Route::middleware(['auth:sanctum', 'verified'])->get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 Route::resource('documents', DocumentController::class);
 Route::resource('users', UserController::class);
 Route::resource('projects', ProjectController::class);
+
