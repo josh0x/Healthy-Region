@@ -41,12 +41,7 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        $project = new Project();
-
-        $project->name = request ('name');
-        $project->overview = request ('overview');
-        $project->save();
-
+        $document = Project::create($this->validateProject($request));
         return  redirect('projects');
     }
 
@@ -81,8 +76,7 @@ class ProjectController extends Controller
      */
     public function update(Request $request, Project $project)
     {
-        $project->update($this->validateProject());
-
+        $project->update($this->validateProject($request));
         return redirect($project->path());
     }
 
@@ -112,9 +106,8 @@ class ProjectController extends Controller
     protected function validateProject(): array
     {
         return request()->validate([
-            'title' => 'required',
-            'excerpt' => 'required',
-            'type' => 'nullable'
+            'name' => 'required',
+            'overview' => 'required'
         ]);
     }
 }
