@@ -5,6 +5,7 @@
         </h2>
     </x-slot>
 
+
     <div class="container mx-auto px-4 py-10 text-black flex justify-center">
         <form action='/projects' class="x-form" method="POST">
             @csrf
@@ -54,9 +55,9 @@
                 <div class="mt-6 flex items-center justify-center">
                     <button type="submit" name="submit" class="py-1.5 px-3.5 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">Upload</button>
                 </div>
-            </div>
 
-        </form>
-    </div>
+                </div>
+                    </form>
+        </div>
 
 </x-app-layout>
