@@ -5,6 +5,10 @@
         </h2>
     </x-slot>
 
+    <div class="max-w-6xl mx-auto py-10 sm:px-6 lg:px-8">
+      <div class="block mb-8">
+          <a href="{{ route('users.create') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Add User</a>
+      </div>
     <!-- This example requires Tailwind CSS v2.0+ -->
 <div class="container mx-auto px-4 py-10 flex justify-center">
 <div class="flex flex-col">

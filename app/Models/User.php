@@ -71,4 +71,8 @@ class User extends Authenticatable
     {
         return $this->hasMany(Project::class); // Selecet * from documents where researcher_id = (current_id)
     }
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class);
+    }
 }
