@@ -30,14 +30,18 @@
             </div>
           @endif
 
+            <div class="text-blue-400">
+                <h1>Note: All fields with <a class="text-red-400">*</a> are mandatory to be filled in.</h1>
+            </div>
+
 
             <div class="mt-10 bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col my-2 text- ck">
                 <span class="mt-2 flex justify-center text-lg font-bold text-gray-600">Add a new document</span>
                     <label class="mt-6 block">
-                        <span class="text-gray-700">Title </span>
+                        <span class="text-gray-700"> <a class="text-red-400">*</a> Title </span>
                         <p><a class="text-yellow-300"> Fill a correct Title (minimum 5 characters)</a></p>
                     </label>
-                        <input class=" @error('title') border-red-400 @enderror form-input px-2 py-2 border-2 rounded-md border-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-300 focus:border-transparent" name="title" rows="2" cols="60" id="title" value="{{old('title')}}">
+                       <input class=" @error('title') border-red-400 @enderror form-input px-2 py-2 border-2 rounded-md border-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-300 focus:border-transparent" name="title" rows="2" cols="60" id="title" value="{{old('title')}}">
 
                             @if($errors->has('title'))
                                 <p class=" text-red-400">{{$errors->first('title')}}</p>
@@ -45,7 +49,7 @@
 
             <div class="mt-6">
                 <label class="block">
-                    <span class="text-gray-700">Description</span>
+                    <span class="text-gray-700"> <a class="text-red-400">*</a> Description</span>
                     <p><a class="text-yellow-300"> Fill a complete description (minimum 5 characters)</a></p>
 
                 </label>
@@ -56,7 +60,7 @@
             </div>
 
             <div class="mt-6">
-                <label class="text-gray-700" >Choose the type:</label>
+                <label class="text-gray-700" > <a class="text-red-400">*</a> Choose the type:</label>
                         <div class="select">
                             <select class="form-select px-2 py-2 border-2 rounded-md border-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-300 focus:border-transparent" name="type" id="type">
                                 <option value="questionnaire">Questionnaire</option>
@@ -68,7 +72,7 @@
 
 
                 <div class="mt-6">
-                    <label class="text-gray-700" for="user_id" >Choose an Author:</label>
+                    <label class="text-gray-700" for="user_id" > <a class="text-red-400">*</a> Choose an Author:</label>
                     <p><a class="text-yellow-300"> Choose an Author for this document from the list</a></p>
 
                     <div class="select">

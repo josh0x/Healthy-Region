@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Response;
 use App\Models\Document;
 use Illuminate\Http\Request;
 use App\Models\user;
@@ -18,7 +18,6 @@ class DocumentController extends Controller
      */
     public function index()
     {
-        // $document = Document::latest(10)->get();
         $docs = Document::get();
         $users = User::get();
 
@@ -47,9 +46,22 @@ class DocumentController extends Controller
     public function store(Request $request)
     {
         $document = Document::create($this->validateDocument($request));
+
         $document->user()->associate(User::find($request->user_id));
         $document->project()->associate(Project::find($request->project_id));
-        $document->save();
+        if($request->file()) {
+            $name = time().'_'.$request->file->getClientOriginalName();
+            $filePath = $request->file('file')->storeAs('files', $name, 'public');
+            $document->file = $name;
+            $document->save();
+
+            return redirect('documents')
+                ->with('success','File has uploaded to the database.')
+                ->with('file', $name);
+        }
+        else {
+            $document->save();
+        }
         return  redirect('documents');
     }
 
@@ -72,7 +84,11 @@ class DocumentController extends Controller
      */
     public function edit(Document $document)
     {
-        return view('documents.edit', ['document' => $document]);
+        $users = User::get();
+        $projects = Project::get();
+        return view('documents.edit', ['document' => $document,
+            'projects' => $projects,
+            'users' => $users]);
     }
 
     /**
@@ -84,8 +100,22 @@ class DocumentController extends Controller
      */
     public function update(Request $request, Document $document)
     {
-        $document->update($this->validateDocument());
+        $document->update($this->validateDocument($request));
+        $document->user()->associate(User::find($request->user_id));
+        $document->project()->associate(Project::find($request->project_id));
+        if($request->file()) {
+            $name = time().'_'.$request->file->getClientOriginalName();
+            $filePath = $request->file('file')->storeAs('files', $name, 'public');
+            $document->file = $name;
+            $document->save();
 
+            return redirect('documents')
+                ->with('success','File has uploaded to the database.')
+                ->with('file', $name);
+        }
+        else {
+            $document->save();
+        }
         return redirect($document->path());
     }
 
@@ -101,9 +131,10 @@ class DocumentController extends Controller
         return redirect(route('documents.index'));
     }
 
-    public function download($file)
+    public function download($fileName)
     {
-        //    code
+        $file_path =  base_path().'/storage/app/public/files/'.$fileName;
+        return Response::download($file_path);
     }
 
 
@@ -116,7 +147,8 @@ class DocumentController extends Controller
             'title' => 'required | string | min:5',
             'excerpt' => 'required | string | min:5',
             'user_id'=>'required',
-            'type' => 'nullable'
+            'type' => 'nullable',
+            'file' => 'required|mimes:png,jpg,jpeg,csv,txt,xlx,xls,pdf|max:2048'
         ]);
     }
 }
