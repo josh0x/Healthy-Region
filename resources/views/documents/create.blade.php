@@ -5,6 +5,7 @@
         </h2>
     </x-slot>
 
+
     <div class="container mx-auto px-4 py-10 flex justify-center text-black">
         <form action='/documents' class="x-form text-black" method="POST" enctype="multipart/form-data">
             @csrf
@@ -43,9 +44,16 @@
                     </label>
                        <input class=" @error('title') border-red-400 @enderror form-input px-2 py-2 border-2 rounded-md border-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-300 focus:border-transparent" name="title" rows="2" cols="60" id="title" value="{{old('title')}}">
 
-                            @if($errors->has('title'))
-                                <p class=" text-red-400">{{$errors->first('title')}}</p>
-                            @endif
+                        @if (count($errors) > 0)
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+
 
             <div class="mt-6">
                 <label class="block">
@@ -68,7 +76,33 @@
                                 <option value="research protocol">Research Protocol</option>
                             </select>
                         </div>
-            </div>
+                        <div class="px-4 py-5 bg-white sm:p-12">
+                                {{-- description --}}
+                                <label for="description" class="block font-medium text-sm text-gray-700">Description</label>
+                                <textarea type="text" name="excerpt" id="excerpt" type="text" class="form-input rounded-md shadow-sm mt-1 block w-full" name="excerpt" rows="5" cols="60" id="excerpt"> {{old('excerpt')}} </textarea>
+                                @error('description')
+                                    <p class="text-sm text-red-600">{{ $message }}</p>
+                                @enderror
+                        </div>
+                        <div class="px-4 py-5 bg-white sm:p-12">
+                            {{-- choose type --}}
+                            <label class="block font-medium text-sm text-gray-700">Choose the type:</label>
+                                    <div class="select">
+                                        <select name="type" id="type">
+                                            <option value="questionnaire">Questionnaire</option>
+                                            <option value="survey">Survey</option>
+                                            <option value="research protocol">Research Protocol</option>
+                                        </select>
+                                    </div>
+                        </div>
+                        {{-- choose author --}}
+                        <div class="px-4 py-5 bg-white sm:p-12">
+                            <label class="block font-medium text-sm text-gray-700" for="user_id" >Choose the Author:</label>
+                            <div class="select">
+                                <select  name="user_id" id="user_id">
+                                    <option></option>
+                                @foreach($users as $user)
+                                    <option value="{{ $user->id }}">{{$user->name}}</option>
 
 
                 <div class="mt-6">
@@ -125,5 +159,4 @@
             </div>
         </form>
     </div>
-
 </x-app-layout>

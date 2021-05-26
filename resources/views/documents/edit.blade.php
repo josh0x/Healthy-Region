@@ -1,20 +1,11 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Edit document ') }}  {{$document->title}}
+            {{ __('Edit: ') }} " {{$document->title}} "
         </h2>
     </x-slot>
 
-    <form class="mt-6 flex items-center justify-center" method="POST" action="/documents/{{$document->id}}">
-        @csrf
-        @method('DELETE')
-        <div class="mt-6 flex items-center justify-center">
-            <button type="submit" name="submit" class="py-1.5 px-3.5 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">Delete</button>
-        </div>
-    </form>
-
-
-    <div class="container mx-auto px-4 py-10 flex justify-center text-black">
+    <div class="container mx-auto py-20 flex justify-center text-black">
         <form action='/documents/{{$document->id}}' class="x-form" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
@@ -49,10 +40,10 @@
                     <p><a class="text-yellow-300"> Fill a correct Title (minimum 5 characters)</a></p>
                 </label>
                 <input class=" @error('title') border-red-400 @enderror form-input px-2 py-2 border-2 rounded-md border-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-300 focus:border-transparent" name="title" rows="2" cols="60" id="title" value="{{$document->title}}">
-
                 @if($errors->has('title'))
                     <p class=" text-red-400">{{$errors->first('title')}}</p>
                 @endif
+
 
                 <div class="mt-6">
                     <label class="block">
