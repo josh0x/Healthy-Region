@@ -28,6 +28,9 @@
                         @if ($errors->first('user_id'))
                             <li class="text-red-500">* Choose an Author</li>
                         @endif
+                            @if ($errors->first('file'))
+                                <li class="text-red-500">* you didn't choose a file</li>
+                            @endif
                     </ul>
                 </div>
             @endif
@@ -105,16 +108,16 @@
                 </div>
 
                 <div class="mt-10 flex items-center justify-center bg-grey-lighter">
-                    <label class="w-64 flex flex-col items-center px-4 py-6 bg-white text-blue rounded-md shadow-md tracking-wide uppercase border border-blue cursor-pointer hover:bg-blue hover:text-black">
+                    <label class="@error('file') border-red-400 @enderror w-64 flex flex-col items-center px-4 py-6 bg-white text-blue rounded-md shadow-md tracking-wide uppercase border border-blue cursor-pointer hover:bg-blue hover:text-black">
                         <svg class="w-8 h-8" fill="blue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                             <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
                         </svg>
                         <span class="mt-2 text-base leading-normal">Select a file</span>
                         <input value="file" type="file" name="file" id="chooseFile" class="hidden"/>
-                        @if($errors->has('file'))
-                            <p class=" text-red-400">{{$errors->first('file')}}</p>
-                        @endif
                     </label>
+                    @if($errors->has('file'))
+                        <p class=" text-red-400">* {{$errors->first('file')}}</p>
+                    @endif
                 </div>
 
                 <div class="mt-6 flex items-center justify-center">
