@@ -74,9 +74,6 @@
                                             <a href='{{$doc->path()}}' class="text-blue-600 hover:text-blue-900">Show</a>
                                         </td>
 
-                                        <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                            <a href class="text-blue-600 hover:text-blue-900">Downlaod</a>
-                                        </td>
                                     </tr>
                                     @endforeach
                                 </tbody>
