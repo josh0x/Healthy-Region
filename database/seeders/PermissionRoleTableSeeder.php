@@ -6,6 +6,7 @@ use App\Models\Permission;
 use App\Models\Role;
 use Illuminate\Database\Seeder;
 
+
 class PermissionRoleTableSeeder extends Seeder
 {
     public function run()
@@ -18,3 +19,11 @@ class PermissionRoleTableSeeder extends Seeder
         Role::findOrFail(2)->permissions()->sync($user_permissions);
     }
 }
+
+    // public function run()
+    //     {
+            // Admin: user access
+    //         Role::find(1)->permissions()->([1,2]);
+
+    //         Role::find(2)->permissions()->([1]);
+    //     }

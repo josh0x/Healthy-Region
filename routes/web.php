@@ -21,9 +21,11 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-Route::resource('documents', \App\Http\ControllersDocumentController::class);
-Route::resource('users', \App\Http\ControllersUserController::class);
-Route::resource('projects', \App\Http\ControllersProjectController::class);
+Route::group(['middleware' => 'auth'], function () {
+
+Route::resource('documents', \App\Http\Controllers\DocumentController::class);
+Route::resource('users', \App\Http\Controllers\UserController::class);
+Route::resource('projects', \App\Http\Controllers\ProjectController::class);
 Route::get('documents/{document}/download',[ DocumentController::class , 'download'])->name('files.download');
 
 });
