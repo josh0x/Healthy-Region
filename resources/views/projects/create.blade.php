@@ -46,6 +46,7 @@
                     @if($errors->has('name'))
                         <p class=" text-red-400">{{$errors->first('name')}}</p>
                     @endif
+
                 </div>
 
                 <div>
