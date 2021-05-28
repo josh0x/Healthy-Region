@@ -5,6 +5,14 @@
         </h2>
     </x-slot>
 
+    <form class="mt-6 flex items-center justify-center" method="POST" action="/documents/{{$document->id}}">
+        @csrf
+        @method('DELETE')
+        <div class="mt-6 flex items-center justify-center">
+            <button type="submit" name="submit" class="py-1.5 px-3.5 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">Delete</button>
+        </div>
+    </form>
+
     <div class="container mx-auto py-20 flex justify-center text-black">
         <form action='/documents/{{$document->id}}' class="x-form" method="POST" enctype="multipart/form-data">
             @csrf

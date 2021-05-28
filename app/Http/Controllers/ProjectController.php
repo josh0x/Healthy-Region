@@ -73,7 +73,7 @@ class ProjectController extends Controller
      * @param  \App\Models\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Project $project,Request $request)
     {
         $project->update($this->validateProject($request));
         return redirect($project->path());
