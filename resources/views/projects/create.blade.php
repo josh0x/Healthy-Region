@@ -33,7 +33,7 @@
                 <span class="mt-2 flex justify-center text-lg font-bold text-gray-600">Add a new document</span>
 
                 <div>
-                    <label class="mt-6 block" for="name">
+                    <label class="mt-6 block">
                         <span class="text-gray-700">Name </span>
                         <p><a class="text-yellow-300"> Fill a correct Name (minimum 5 characters)</a></p>
                     </label>
