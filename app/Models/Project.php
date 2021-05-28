@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Project extends Model
 {
     use HasFactory;
+
     protected $guarded=[];
 
     public function proejectFactory()
@@ -29,8 +30,5 @@ class Project extends Model
     {
     return $this->hasMany(Document::class); // Selecet * from documents where researcher_id = (current_id)
     }
-
-    protected $fillable = [
-        'id', 'title', 'excerpt', 'type', 'file'
-    ];
+    protected $fillable  = ['name','overview'];
 }
