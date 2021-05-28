@@ -39,9 +39,9 @@ class ProjectController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Project $project,Request $request)
     {
-        $document = Project::create($this->validateProject($request));
+        $project->create($this->validateProject($request));
         return  redirect('projects');
     }
 
