@@ -52,9 +52,9 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(User $user, Request $request)
-    {
 
+    public function store(StoreUserRequest $request)
+    {
         $user = User::create($request->validated());
         $user->roles()->sync($request->input('roles', []));
 
@@ -99,7 +99,8 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+
+    public function update(UpdateUserRequest $request, User $user)
     {
         $user->update($request->validated());
         $user->roles()->sync($request->input('roles', []));

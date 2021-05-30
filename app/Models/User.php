@@ -71,6 +71,17 @@ class User extends Authenticatable
     {
         return $this->hasMany(Project::class); // Selecet * from documents where researcher_id = (current_id)
     }
+
+    public function __construct(array $attributes = [])
+    {
+        parent::__construct($attributes);
+        self::created(function (User $user) {
+            if (!$user->roles()->get()->contains(2)) {
+                $user->roles()->attach(2);
+            }
+        });
+    }
+
     public function roles()
     {
         return $this->belongsToMany(Role::class);
