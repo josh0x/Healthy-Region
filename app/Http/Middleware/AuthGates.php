@@ -24,6 +24,7 @@ class AuthGates
             }
 
             foreach ($permissionsArray as $title => $roles) {
+                // Defines whether admin or student access with Gate ( true or false)
                 Gate::define($title, function ($user) use ($roles) {
                     return count(array_intersect($user->roles->pluck('id')->toArray(), $roles)) > 0;
                 });
