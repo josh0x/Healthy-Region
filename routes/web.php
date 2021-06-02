@@ -18,7 +18,7 @@ Route::get('/', function () {
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
+    return view('dashboards.index');
 })->name('dashboard');
 
 Route::group(['middleware' => 'auth'], function () {
@@ -26,6 +26,8 @@ Route::group(['middleware' => 'auth'], function () {
 Route::resource('documents', \App\Http\Controllers\DocumentController::class);
 Route::resource('users', \App\Http\Controllers\UserController::class);
 Route::resource('projects', \App\Http\Controllers\ProjectController::class);
+Route::resource('dashboards', \App\Http\Controllers\DashboardController::class);
+
 Route::get('documents/{document}/download',[ DocumentController::class , 'download'])->name('files.download');
 
 });

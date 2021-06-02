@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Response;
 use App\Models\Document;
+use App\Models\Dashboard;
 use Illuminate\Http\Request;
 use App\Models\user;
 use App\Models\Project;
