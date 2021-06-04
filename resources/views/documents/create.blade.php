@@ -4,7 +4,6 @@
             {{ __('Upload new document') }}
         </h2>
     </x-slot>
-
     <div class="max-w-4xl mx-auto py-20 sm:px-6 lg:px-8">
         <div class="mt-5 md:mt-0 md:col-span-2">
             <div class="shadow overflow-hidden sm:rounded-md">
@@ -37,6 +36,7 @@
                                     <p class="text-red-500">* Fill in a correct description (minimum 5 characters)</p>
                                 @endif
                         </div>
+
 
                         <div class="mt-6">
                             <label class="block font-medium text-sm text-gray-700"><a class="text-red-500">*</a> Choose the type:</label>

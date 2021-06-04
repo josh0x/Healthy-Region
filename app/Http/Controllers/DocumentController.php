@@ -56,13 +56,13 @@ class DocumentController extends Controller
             $document->save();
 
             return redirect('documents')
-                ->with('success','File has uploaded to the database.')
+                ->with('success','The document has uploaded to the database.')
                 ->with('file', $name);
         }
         else {
             $document->save();
         }
-        return  redirect('documents');
+        return  redirect('documents')->with('success', 'The document uploaded to the database.');
     }
 
     /**
@@ -87,9 +87,12 @@ class DocumentController extends Controller
     {
         $users = User::get();
         $projects = Project::get();
-        return view('documents.edit', ['document' => $document,
-            'projects' => $projects,
-            'users' => $users]);
+        return view('documents.edit',
+            [
+                'document' => $document,
+                'projects' => $projects,
+                'users' => $users
+            ]);
     }
 
     /**
@@ -111,13 +114,13 @@ class DocumentController extends Controller
             $document->save();
 
             return redirect('documents')
-                ->with('success','File has uploaded to the database.')
+                ->with('success','The document has uploaded to the database.')
                 ->with('file', $name);
         }
         else {
             $document->save();
         }
-        return redirect($document->path());
+        return redirect($document->path())->with('success','The document has uploaded to the database.');
     }
 
     /**

@@ -4,7 +4,6 @@
             {{ __('Create new project') }}
         </h2>
     </x-slot>
-
     <div class="max-w-4xl mx-auto py-20 sm:px-6 lg:px-8">
         <div class="mt-5 md:mt-0 md:col-span-2">
             <div class="shadow overflow-hidden sm:rounded-md">
@@ -50,4 +49,5 @@
             </div>
         </div>
     </div>
+
 </x-app-layout>
