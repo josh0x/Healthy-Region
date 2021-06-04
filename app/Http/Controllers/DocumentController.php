@@ -73,7 +73,7 @@ class DocumentController extends Controller
      */
     public function show(Document $document)
     {
-        // $document = Document::get();
+
         return view('documents.show', ['document' => $document]);
     }
 

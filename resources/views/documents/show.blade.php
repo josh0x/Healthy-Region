@@ -29,12 +29,17 @@
                     </div>
                 </div>
 
-                    <div class="flex items-center justify-center px-4 py-3 bg-gray-50 text-right sm:px-6">
-                        <a href="{{ route('files.download', $document->file) }}"><button class="inline-flex items-center px-4 py-2 bg-blue-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-800 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150">Download</button></a>
-                    </div>
 
-            </div>
-        </div>
+    <div style="margin-top: 0.5cm" class=" text-center align-middle mx-auto">
+        <h1 class="mx-auto font-semibold text-xl uppercase text-blue-400 leading-tight">
+            {{$document->type}}
+        </h1>
+    </div>
+    <div class="container mx-auto px-4 py-20 flex justify-center">
+        <a href="{{ route('files.download', $document->file) }}" ><button class="py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">Download</button></a>
+    </div>
+    <div class="container mx-auto px-4 py-20 flex justify-center">
+        <iframe src="http://192.168.1.193:8080/{{$document->file}}" class="align-middle mx-auto w-6/12 border-blue-400 border-8" height="500 cm"> </iframe>
     </div>
 
 </x-app-layout>
