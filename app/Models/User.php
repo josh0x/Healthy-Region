@@ -53,7 +53,7 @@ class User extends Authenticatable
     ];
 
     /**
-     * The accessors to append to the model's array form.
+     * The accessors to append to the model's array form. 
      *
      * @var array
      */
@@ -61,14 +61,30 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
-
     public function documents(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
+
     return $this->hasMany(Document::class); // Selecet * from documents where researcher_id = (current_id)
+
     }
 
     public function project(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(Project::class); // Selecet * from documents where researcher_id = (current_id)
+    }
+
+    public function __construct(array $attributes = [])
+    {
+        parent::__construct($attributes);
+        self::created(function (User $user) {
+            if (!$user->roles()->get()->contains(2)) {
+                $user->roles()->attach(2);
+            }
+        });
+    }
+
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class);
     }
 }

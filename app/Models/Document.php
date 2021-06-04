@@ -32,4 +32,5 @@ class Document extends Model
     protected $fillable = [
         'id', 'title', 'excerpt', 'type', 'file'
     ];
+
 }
