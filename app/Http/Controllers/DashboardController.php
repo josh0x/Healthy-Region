@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Response;
 use App\Models\Document;
+use App\Models\Dashboard;
 use Illuminate\Http\Request;
 use App\Models\user;
 use App\Models\Project;
@@ -56,13 +57,13 @@ class DocumentController extends Controller
             $document->save();
 
             return redirect('documents')
-                ->with('success','The document has uploaded to the database.')
+                ->with('success','File has uploaded to the database.')
                 ->with('file', $name);
         }
         else {
             $document->save();
         }
-        return  redirect('documents')->with('success', 'The document uploaded to the database.');
+        return  redirect('documents');
     }
 
     /**
@@ -87,12 +88,9 @@ class DocumentController extends Controller
     {
         $users = User::get();
         $projects = Project::get();
-        return view('documents.edit',
-            [
-                'document' => $document,
-                'projects' => $projects,
-                'users' => $users
-            ]);
+        return view('documents.edit', ['document' => $document,
+            'projects' => $projects,
+            'users' => $users]);
     }
 
     /**
@@ -114,13 +112,13 @@ class DocumentController extends Controller
             $document->save();
 
             return redirect('documents')
-                ->with('success','The document has uploaded to the database.')
+                ->with('success','File has uploaded to the database.')
                 ->with('file', $name);
         }
         else {
             $document->save();
         }
-        return redirect($document->path())->with('success','The document has uploaded to the database.');
+        return redirect($document->path());
     }
 
     /**

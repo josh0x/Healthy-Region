@@ -1,23 +1,30 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Personal Documents') }}
+            {{ __('Dashboard') }}
         </h2>
     </x-slot>
-    @if (session()->has('success'))
-        <div class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-            <strong>{{ session()->get('success')}}</strong>
-        </div>
-    @endif
 
     <div class="container mx-auto px-4 py-20 flex justify-center">
-        <div class="shadow overflow-hidden sm:rounded-md">
+        <div class="mt-5 md:mt-0 md:col-span-2">
+            {{-- Search bar --}}
+            <form>
+                <div class="w-full py-10 px-3">
+                    <label class="block uppercase tracking-wide text-gray-700 text-sm font-bold mb-2" for="term">
+                        Search
+                    </label>
+                    <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="term" name="term" type="text">
+                </div>
+            </form>
+            {{-- Table --}}
             <div class="p-4 px-4 py-5 bg-white sm:p-12">
+
                 <div class="flex flex-col">
                     <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                         <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                             <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-                                <table class="min-w-full divide-y divide-gray-200">
+
+                                {{-- <table class="min-w-full divide-y divide-gray-200">
                                     <thead class="bg-gray-50">
                                     <tr>
                                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -43,7 +50,7 @@
                                         </th>
                                     </tr>
                                     </thead>
-                                    {{-- body of table --}}
+
                                     <tbody class="bg-white divide-y divide-gray-200">
                                         @foreach($docs as $doc)
                                             <tr>
@@ -85,19 +92,15 @@
                                             </tr>
                                         @endforeach
                                     </tbody>
-                                </table>
+                                </table> --}}
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-                <div class="flex items-center justify-center px-4 py-3 bg-gray-50 text-right sm:px-6">
-                    <a href="/documents/create" class="inline-flex items-center px-4 py-2 bg-blue-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-800 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150" type="button">
-                        Upload
-                    </a>
-                </div>
         </div>
     </div>
 
 </x-app-layout>
+
