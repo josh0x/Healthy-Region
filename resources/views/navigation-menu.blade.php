@@ -11,14 +11,9 @@
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex text-white hover:bg-blue-300">
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex hover:bg-blue-300">
                     <x-jet-nav-link style="color: white" href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
-                    </x-jet-nav-link>
-                </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex hover:bg-blue-300" >
-                    <x-jet-nav-link style="color: white" href="{{ route('users.index') }}" :active="request()->routeIs('users.index')">
-                        {{ __('Researchers') }}
                     </x-jet-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex hover:bg-blue-300">
@@ -31,6 +26,13 @@
                         {{ __('Projects') }}
                     </x-jet-nav-link>
                 </div>
+                @can('user_access')
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex hover:bg-blue-300" >
+                    <x-jet-nav-link style="color: white" href="{{ route('users.index') }}" :active="request()->routeIs('users.*')">
+                        {{ __('Researchers') }}
+                    </x-jet-nav-link>
+                </div>
+                @endcan
             </div>
 
             <div class="hidden sm:flex sm:items-center sm:ml-6">

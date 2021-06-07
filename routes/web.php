@@ -1,10 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+<<<<<<< HEAD
 use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\DashboardController;
+=======
+
+>>>>>>> origin/main
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,9 +24,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboards.index');
+})->name('dashboard');
 
-Route::resource('documents', DocumentController::class);
-Route::resource('users', UserController::class);
-Route::resource('projects', ProjectController::class);
+Route::group(['middleware' => 'auth'], function () {
 
+Route::resource('documents', \App\Http\Controllers\DocumentController::class);
+Route::resource('users', \App\Http\Controllers\UserController::class);
+Route::resource('projects', \App\Http\Controllers\ProjectController::class);
+Route::resource('dashboards', \App\Http\Controllers\DashboardController::class);
+
+Route::get('documents/{document}/download',[ DocumentController::class , 'download'])->name('files.download');
+
+});

@@ -7,11 +7,13 @@ module.exports = {
         './storage/framework/views/*.php',
         './resources/views/**/*.blade.php',
     ],
+        darkMode: 'media',
+
 
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Nunito', ...defaultTheme.fontFamily.sans],
+                // sans: ['font-sans', ...defaultTheme.fontFamily.sans],
             },
         },
     },
