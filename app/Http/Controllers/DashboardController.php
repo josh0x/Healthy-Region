@@ -2,16 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Document;
 use Illuminate\Http\Request;
+use PhpParser\Comment\Doc;
 
 class DashboardController extends Controller
 {
     public function index()
     {
-        //Search function DD
-        if (request()->query('query')) {
-            dd(request()->query('query'));
+
+        $search = request()->query('search');
+
+        if ($search) {
+            $docs = Document::where('title', 'LIKE', "%{$search}%");
         }
+
+
 
         return view('dashboard');
     }
