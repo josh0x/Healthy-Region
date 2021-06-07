@@ -1,14 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-<<<<<<< HEAD
 use App\Http\Controllers\DocumentController;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\DashboardController;
-=======
 
->>>>>>> origin/main
 /*
 |--------------------------------------------------------------------------
 | Web Routes
