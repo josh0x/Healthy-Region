@@ -17,22 +17,22 @@
                     </div>
 
                     <div class="mt-6">
-                        <label class="block font-medium text-sm text-gray-700">
+                        <label for="name" class="block font-medium text-sm text-gray-700">
                             <span> <a class="text-red-500">*</a>Name</span>
                         </label>
 
-                        <textarea class="@error('name') border-red-500 @enderror form-input rounded-md shadow-sm mt-1 block w-full" name="excerpt" rows="1" cols="60" id="name"> {{old('name')}} </textarea>
+                        <textarea class="@error('name') border-red-500 @enderror form-input rounded-md shadow-sm mt-1 block w-full" name="name" rows="1" cols="60" id="name"> {{old('name')}} </textarea>
                             @if($errors->has('name'))
                                 <p class="text-red-500">* Fill in a correct name (minimum 5 characters)</p>
                             @endif
                     </div>
 
                     <div class="mt-6">
-                        <label class="block font-medium text-sm text-gray-700">
+                        <label for="overview" class="block font-medium text-sm text-gray-700">
                             <span> <a class="text-red-500">*</a>Description</span>
                         </label>
 
-                        <textarea class="@error('overview') border-red-500 @enderror form-input rounded-md shadow-sm mt-1 block w-full" name="excerpt" rows="5" cols="60" id="overview"> {{old('overview')}} </textarea>
+                        <textarea class="@error('overview') border-red-500 @enderror form-input rounded-md shadow-sm mt-1 block w-full" name="overview" rows="5" cols="60" id="overview"> {{old('overview')}} </textarea>
                             @if($errors->has('overview'))
                                 <p class="text-red-500">* Fill in a correct description (minimum 5 characters)</p>
                             @endif
