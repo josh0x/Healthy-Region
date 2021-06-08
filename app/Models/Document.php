@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 class Document extends Model
 {
@@ -28,6 +29,11 @@ class Document extends Model
     {
         return $this->belongsTo(project::class); // select * from researcher where document_id =
     }
+    function dashboard()
+    {
+        return $this->belongsTo(Dashboard::class); // select * from researcher where document_id =
+    }
+
 
     protected $fillable = [
         'id', 'title', 'excerpt', 'type', 'file'

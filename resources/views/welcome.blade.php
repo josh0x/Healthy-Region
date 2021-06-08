@@ -133,7 +133,7 @@
                 @if (Route::has('login'))
                     <div class="container mx-auto px-2 py-5 flex justify-center">
                         @auth
-                            <a href="{{ url('/dashboard') }}" class="text-md text-white-700 underline">Dashboard</a>
+                            <a href="{{ url('/dashboards') }}" class="text-md text-white-700 underline">Dashboard</a>
                                 @else
                                     <a href="{{ route('login') }}" class="text-md text-white-700 underline">Log in</a>
                         @endauth
@@ -162,6 +162,7 @@
             </div>
         <!--Waves end-->
     </head>
+
         <!--Content starts-->
         <div class="content flex">
             <h3>HZ University | Netherlands</h3>
