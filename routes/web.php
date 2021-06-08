@@ -1,10 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
+
 use \App\Http\Controllers\DocumentController;
-use \App\Http\Controllers\UserController;
-use \App\Http\Controllers\ProjectController;
 use \App\Http\Controllers\DashboardController;
+use \App\Http\Controllers\ProjectController;
+use \App\Http\Controllers\UserController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
