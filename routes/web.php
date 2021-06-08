@@ -2,11 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 
+
 use \App\Http\Controllers\DocumentController;
 use \App\Http\Controllers\DashboardController;
 use \App\Http\Controllers\ProjectController;
 use \App\Http\Controllers\UserController;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -23,9 +23,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboards', function () {
     return view('dashboards.index');
-})->name('dashboard');
+})->name('dashboards');
 
 Route::group(['middleware' => 'auth'], function () {
 
@@ -34,6 +34,7 @@ Route::resource('users', UserController::class);
 Route::resource('projects', ProjectController::class);
 Route::resource('dashboards', DashboardController::class);
 
-Route::get('documents/{document}/download',[ DocumentController::class , 'download'])->name('files.download');
+Route::get('documents/{document}/download',[DocumentController::class, 'download'])->name('files.download');
 
 });
+
