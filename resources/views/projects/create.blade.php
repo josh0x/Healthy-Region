@@ -4,7 +4,7 @@
             {{ __('Create new project') }}
         </h2>
     </x-slot>
-    <div class="max-w-4xl mx-auto py-20 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto py-20 sm:px-6 lg:px-8 text-black">
         <div class="mt-5 md:mt-0 md:col-span-2">
             <div class="shadow overflow-hidden sm:rounded-md text-gray-700">
                 <div class="p-4 px-4 py-5 bg-white sm:p-12">
@@ -38,13 +38,14 @@
                             @endif
                     </div>
 
-            </div>
+
                     <div class="flex items-center justify-center px-4 py-3 bg-gray-50 text-right sm:px-6">
                         <button class="inline-flex items-center px-4 py-2 bg-blue-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-800 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150">
                             Upload
                         </button>
                     </div>
                 </form>
+                </div>
 
             </div>
         </div>

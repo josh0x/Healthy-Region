@@ -10,6 +10,14 @@
         </div>
     @endif
 
+    <div class="text-black">
+        <select>
+            <option></option>
+            <option>Name</option>
+            <option>Date</option>
+        </select>
+    </div>
+
     <div class="container mx-auto px-4 py-20 flex justify-center">
         <div class="shadow overflow-hidden sm:rounded-md">
             <div class="p-4 px-4 py-5 bg-white sm:p-12">
@@ -75,7 +83,7 @@
                                                 </td>
 
                                                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                                    <a href="/document/{{$doc->id}}/edit" class="text-blue-600 hover:text-blue-900">Edit</a>
+                                                    <a href="/documents/{{$doc->id}}/edit" class="text-blue-600 hover:text-blue-900">Edit</a>
                                                 </td>
 
                                                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
