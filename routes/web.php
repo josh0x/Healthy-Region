@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use \App\Http\Controllers\DocumentController;
+use \App\Http\Controllers\DashboardController;
+use \App\Http\Controllers\ProjectController;
+use \App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,10 +27,10 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 Route::group(['middleware' => 'auth'], function () {
 
-Route::resource('documents', \App\Http\Controllers\DocumentController::class);
-Route::resource('users', \App\Http\Controllers\UserController::class);
-Route::resource('projects', \App\Http\Controllers\ProjectController::class);
-Route::resource('dashboards', \App\Http\Controllers\DashboardController::class);
+Route::resource('documents', DocumentController::class);
+Route::resource('users', UserController::class);
+Route::resource('projects', ProjectController::class);
+Route::resource('dashboards', DashboardController::class);
 
 Route::get('documents/{document}/download',[ DocumentController::class , 'download'])->name('files.download');
 
