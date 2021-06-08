@@ -1,4 +1,5 @@
 <x-app-layout>
+
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
            "{{$document->title}}"
@@ -9,7 +10,6 @@
         <div class="mt-5 md:mt-0 md:col-span-2">
             <div class="shadow overflow-hidden sm:rounded-md">
                 <div class="p-4 px-4 py-5 bg-white sm:p-12">
-
                     <div style="margin-top: 0.5cm" class="text-center align-middle mx-auto">
                         <h1 class="mx-auto font-semibold text-xl text-gray-800 leading-tight">
                             Title:  {{$document->title}}
@@ -28,7 +28,6 @@
                         </h1>
                     </div>
                 </div>
-
 
     <div style="margin-top: 0.5cm" class=" text-center align-middle mx-auto">
         <h1 class="mx-auto font-semibold text-xl uppercase text-blue-400 leading-tight">

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Response;
 use App\Models\Document;
 use App\Models\Dashboard;

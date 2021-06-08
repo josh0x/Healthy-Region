@@ -83,20 +83,25 @@
                                                 </td>
 
                                             </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
+                            @endforeach
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
 
-                <div class="flex items-center justify-center px-4 py-3 bg-gray-50 text-right sm:px-6">
-                    <a href="/documents/create" class="inline-flex items-center px-4 py-2 bg-blue-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-800 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150" type="button">
-                        Upload
-                    </a>
-                </div>
+    {{--Upload--}}
+    <div class="container mx-auto px-4 py-10 flex justify-center">
+        <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col my-2">
+            <div class="block content-center">
+                <a href="/documents/create"
+                   class="py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
+                   type="button">
+                    Upload
+                </a>
+            </div>
         </div>
     </div>
 
