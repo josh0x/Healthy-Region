@@ -4,16 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 class Document extends Model
 {
     use HasFactory;
     protected $guarded=[];
 
-    public function documentFactory()
-    {
-        $documents = Document::factory()->count(3)->make();
-    }
     public function path()
     {
                 return route('documents.show', $this);
@@ -28,6 +25,11 @@ class Document extends Model
     {
         return $this->belongsTo(project::class); // select * from researcher where document_id =
     }
+    function dashboard()
+    {
+        return $this->belongsTo(Dashboard::class); // select * from researcher where document_id =
+    }
+
 
     protected $fillable = [
         'id', 'title', 'excerpt', 'type', 'file'
