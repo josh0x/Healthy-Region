@@ -41,6 +41,7 @@ class ProjectController extends Controller
     public function store(Project $project,Request $request)
     {
         $project->create($this->validateProject($request));
+        $project->save();
         return  redirect('projects');
     }
 

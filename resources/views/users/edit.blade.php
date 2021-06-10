@@ -6,12 +6,12 @@
     </x-slot>
 
     <div>
-        <div class="max-w-4xl mx-auto py-10 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto py-10 sm:px-6 lg:px-8 text-black">
             <div class="mt-5 md:mt-0 md:col-span-2">
-                <form method="post" action="{{ route('users.update', $user->id) }}">
+                <form method="post" action="/users/{{$user->id}}"">
                     @csrf
                     @method('put')
-                    <div class="shadow overflow-hidden sm:rounded-md">
+                    <div class="shadow overflow-hidden sm:rounded-md text-gray-700">
                         <div class="px-4 py-5 bg-white sm:p-6">
                             <label for="name" class="block font-medium text-sm text-gray-700">Name</label>
                             <input type="text" name="name" id="name" class="form-input rounded-md shadow-sm mt-1 block w-full"

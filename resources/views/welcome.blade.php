@@ -3,8 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
+            <title>Healthy Region</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -133,7 +132,7 @@
                 @if (Route::has('login'))
                     <div class="container mx-auto px-2 py-5 flex justify-center">
                         @auth
-                            <a href="{{ url('/dashboard') }}" class="text-md text-white-700 underline">Dashboard</a>
+                            <a href="{{ url('/dashboards') }}" class="text-md text-white-700 underline">Dashboard</a>
                                 @else
                                     <a href="{{ route('login') }}" class="text-md text-white-700 underline">Log in</a>
                         @endauth
@@ -162,6 +161,7 @@
             </div>
         <!--Waves end-->
     </head>
+
         <!--Content starts-->
         <div class="content flex">
             <h3>HZ University | Netherlands</h3>
