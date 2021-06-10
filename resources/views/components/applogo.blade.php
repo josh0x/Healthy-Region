@@ -1,3 +1,3 @@
 <div>
-    <img src="{{$logo}}">
+    <img src="\images\hz.png">
 </div>
