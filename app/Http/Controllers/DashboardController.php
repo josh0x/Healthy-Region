@@ -87,4 +87,11 @@ class DashboardController extends Controller
     {
         //
     }
+
+    public function search(){
+        $searchquery = $_GET['query'];
+        $docs = Document::where('title', 'LIKE', '%'.$searchquery.'%')->get();
+
+        return view('dashboards.search', compact('docs'));
+    }
 }
