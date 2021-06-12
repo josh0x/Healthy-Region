@@ -164,7 +164,7 @@
 
         <!--Content starts-->
         <div class="content flex">
-            <h3>HZ University | Netherlands</h3>
+            <h3>Jose University | Netherlands</h3>
         </div>
         <!--Content ends-->
         </div>
