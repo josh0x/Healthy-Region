@@ -33,11 +33,6 @@
                     </x-jet-nav-link>
                 </div>
                 @endcan
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex hover:bg-blue-300" >
-                    <x-jet-nav-link style="color: white" href="{{ route('contact') }}" :active="request()->routeIs('contact')">
-                        {{ __('Contact') }}
-                    </x-jet-nav-link>
-                </div>
             </div>
 
             <div class="hidden sm:flex sm:items-center sm:ml-6">
