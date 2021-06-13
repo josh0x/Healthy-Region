@@ -11,6 +11,10 @@ class Document extends Model
     use HasFactory;
     protected $guarded=[];
 
+    public static function where(string $string, string $string1, string $string2)
+    {
+    }
+
     public function documentFactory()
     {
         $documents = Document::factory()->count(3)->make();

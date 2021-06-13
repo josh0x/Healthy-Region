@@ -1,6 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use Response;
+
 use App\Models\Dashboard;
 use App\Models\Document;
 use Illuminate\Http\Request;

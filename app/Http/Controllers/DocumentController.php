@@ -155,4 +155,16 @@ class DocumentController extends Controller
             'file' => 'required|mimes:png,jpg,jpeg,csv,txt,xlx,xls,pdf|max:2048'
         ]);
     }
+
+    public function search (Request $request){
+
+        //Send an empty variable to the view, unless the if logic below changes, then it'll send a proper variable to the view.
+        $results = null;
+
+        //Runs only if the search has something in it.
+        if (!empty($request->title)) {
+            $results = Property::all()->where('some search here')->get();
+        }
+        return view('documents/show.blade.php')->with('results', $results);
+    }
 }
