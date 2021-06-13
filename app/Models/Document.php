@@ -15,6 +15,7 @@ class Document extends Model
     {
         $documents = Document::factory()->count(3)->make();
     }
+
     public function path()
     {
                 return route('documents.show', $this);
