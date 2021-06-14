@@ -9,7 +9,7 @@ use Illuminate\Database\Seeder;
 
 class PermissionRoleTableSeeder extends Seeder
 {
-    public function run()
+    public function run() // assign permission to each user
     {
         $admin_permissions = Permission::all();
         Role::findOrFail(1)->permissions()->sync($admin_permissions->pluck('id'));
@@ -19,11 +19,3 @@ class PermissionRoleTableSeeder extends Seeder
         Role::findOrFail(2)->permissions()->sync($user_permissions);
     }
 }
-
-    // public function run()
-    //     {
-            // Admin: user access
-    //         Role::find(1)->permissions()->([1,2]);
-
-    //         Role::find(2)->permissions()->([1]);
-    //     }

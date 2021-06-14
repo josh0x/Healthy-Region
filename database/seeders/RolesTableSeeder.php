@@ -9,6 +9,7 @@ class RolesTableSeeder extends Seeder
 {
     public function run()
     {
+        // Admin and student access
         $roles = [
             [
                 'id'    => 1,

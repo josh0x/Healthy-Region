@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
-class UsersTableSeeder extends Seeder
+class UsersTableSeeder extends Seeder // seed users: admind id#1 & student id#2
 {
     public function run()
     {
