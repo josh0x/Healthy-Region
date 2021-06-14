@@ -9,15 +9,6 @@
             <strong>{{ session()->get('success')}}</strong>
         </div>
     @endif
-
-    <div class="text-black">
-        <select>
-            <option></option>
-            <option>Name</option>
-            <option>Date</option>
-        </select>
-    </div>
-
     <div class="container mx-auto px-4 py-20 flex justify-center">
         <div class="shadow overflow-hidden sm:rounded-md">
             <div class="p-4 px-4 py-5 bg-white sm:p-12">
@@ -64,7 +55,7 @@
                                                             <div class="text-sm font-medium text-gray-900">
                                                                 {{$doc->user->name}}
                                                             </div>
-                                                        <div class="text-sm text-gray-500">
+                                                        </div>
                                                     </div>
                                                 </td>
 
@@ -111,6 +102,7 @@
                 </a>
             </div>
         </div>
+    </div></div>
     </div>
 
 </x-app-layout>
