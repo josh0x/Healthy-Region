@@ -10,6 +10,10 @@ class Document extends Model
 {
     use HasFactory;
     protected $guarded=[];
+  
+      protected $fillable = [
+        'id', 'title', 'excerpt', 'type', 'file'
+    ];
 
     public function path()
     {
@@ -25,14 +29,12 @@ class Document extends Model
     {
         return $this->belongsTo(project::class); // select * from researcher where document_id =
     }
+
     function dashboard()
     {
         return $this->belongsTo(Dashboard::class); // select * from researcher where document_id =
     }
 
 
-    protected $fillable = [
-        'id', 'title', 'excerpt', 'type', 'file'
-    ];
 
 }
