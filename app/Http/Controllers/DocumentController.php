@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use Response;
 use App\Models\Document;
 use Illuminate\Http\Request;
-use App\Models\user;
+use App\Models\User;
 use App\Models\Project;
 
 
