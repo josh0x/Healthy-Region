@@ -32,19 +32,6 @@ class DocumentController extends Controller
      */
     public function create()
     {
-
-//        foreach (Auth::user()->roles as $auth){
-//            if ($auth->title === 'admin'){
-//                $users = User::get();
-//                $projects = Project::get();
-//
-//                return view('documents.create' , ['users' => $users], ['projects' => $projects]);
-//            }
-//            else {
-//                return redirect('documents');
-//            }
-//        }
-
         $users = User::get();
         $projects = Project::get();
 
