@@ -22,7 +22,10 @@ class DocumentController extends Controller
         $docs = Document::get();
         $users = User::get();
 
-        return view('documents.index', ['docs' => $docs], ['users' => $users]);
+        return view('documents.index', [
+            'docs' => $docs,
+            'users' => $users
+        ]);
     }
 
     /**
@@ -78,7 +81,9 @@ class DocumentController extends Controller
     public function show(Document $document)
     {
 
-        return view('documents.show', ['document' => $document]);
+        return view('documents.show', [
+            'document' => $document
+        ]);
     }
 
     /**
