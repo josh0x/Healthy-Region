@@ -8,21 +8,6 @@
     <div class="container mx-auto px-4 py-20 flex justify-center">
         <div class="mt-5 md:mt-0 md:col-span-2">
 
-            {{-- Search bar --}}
-            {{--            <form type="get" action="">--}}
-            {{--                <div class="w-full py-10 px-3">--}}
-            {{--                    <label class="block uppercase tracking-wide text-gray-700 text-sm font-bold mb-2" for="search">--}}
-            {{--                        Search--}}
-            {{--                    </label>--}}
-            {{--                    <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="search" name="search" type="text">--}}
-            {{--                </div>--}}
-            {{--            </form>--}}
-
-            <form type="get" action="{{ url('/search') }}">
-                <input name="query"  type="search" placeholder="Search documents">
-                <button type="submit">Search</button>
-            </form>
-
             <table class="min-w-full divide-y divide-gray-200">
                 <thead class="bg-gray-50">
                 <tr>
@@ -43,9 +28,6 @@
                     </th>
                     <th scope="col" class="relative px-6 py-3">
                         <span class="sr-only">Show</span>
-                    </th>
-                    <th scope="col" class="relative px-6 py-3">
-                        <span class="sr-only">Download</span>
                     </th>
                 </tr>
                 </thead>
@@ -86,6 +68,15 @@
                 </tbody>
             </table>
 
+            <div class="container mx-auto px-4 py-10 flex justify-center">
+                    <div class="block content-center">
+                        <a href="/dashboards"
+                           class="py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
+                           type="button">
+                            Back to the Dashboard ↺
+                        </a>
+                    </div>
+            </div>
         </div>
     </div>
 

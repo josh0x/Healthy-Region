@@ -88,10 +88,30 @@ class DashboardController extends Controller
         //
     }
 
-    public function search(){
-        $searchquery = $_GET['query'];
-        $docs = Document::where('title', 'LIKE', '%'.$searchquery.'%')->get();
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function search(Request $request){
+        $searchquery = $request['title'];
 
-        return view('dashboards.search', compact('docs'));
+        $this->validateSearch($request);
+
+        if($docs = Document::where('title', 'LIKE', '%'.$searchquery.'%')->get()){
+            return view('dashboards.search', compact('docs'));
+        } else {
+            
+        };
+    }
+
+
+    /**
+     * @return array
+     */
+    protected function validateSearch(): array
+    {
+        return request()->validate([
+            'title' => 'required'
+        ]);
     }
 }
