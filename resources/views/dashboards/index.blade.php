@@ -74,8 +74,11 @@
                                 {{$doc->created_at}}
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                <a href="/documents/{{$doc->id}}/edit" class="text-blue-600 hover:text-blue-900">Edit</a>
+                                @can('user_access')
+                                    <a href="/documents/{{$doc->id}}/edit" class="text-blue-600 hover:text-blue-900">Edit</a>
+                                @endcan
                             </td>
+
                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                 <a href='{{$doc->path()}}' class="text-blue-600 hover:text-blue-900">Show</a>
                             </td>

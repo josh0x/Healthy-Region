@@ -20,7 +20,7 @@ class UserController extends Controller
     public function index()
     {
         abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Fn');
-        // What are roles? Click the User
+        // Get the roles: Click the User model
         $users = User::with('roles')->get();
         return view('users.index', compact('users'));
     }
@@ -85,7 +85,6 @@ class UserController extends Controller
      * @param User $user
      * @return \Illuminate\Http\RedirectResponse
      */
-
     public function update(UpdateUserRequest $request, User $user)
     {
         $user->update($request->validated());

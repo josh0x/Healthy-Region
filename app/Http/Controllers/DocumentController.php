@@ -34,6 +34,7 @@ class DocumentController extends Controller
     public function create()
     {
         abort_if(Gate::denies('user_access'), \Illuminate\Http\Response::HTTP_FORBIDDEN, '403 Forbidden');
+
         $users = User::get();
         $projects = Project::get();
 
@@ -91,6 +92,7 @@ class DocumentController extends Controller
         abort_if(Gate::denies('user_access'), \Illuminate\Http\Response::HTTP_FORBIDDEN, '403 Forbidden');
         $users = User::get();
         $projects = Project::get();
+
         return view('documents.edit',
             [
                 'document' => $document,
@@ -132,8 +134,10 @@ class DocumentController extends Controller
      */
     public function destroy(Document $document)
     {
-        abort_if(Gate::denies('user_access'), \Illuminate\Http\Response::HTTP_FORBIDDEN, '403 Forbidden');
+        $this->authorize('delete', $document);
+
         $document->delete();
+
         return redirect(route('documents.index'));
     }
 
