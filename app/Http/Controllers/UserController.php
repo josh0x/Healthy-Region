@@ -22,7 +22,7 @@ class UserController extends Controller
     public function index()
     {
 
-        abort_if(Gate::denies('user_aorbiddeccess'), Response::HTTP_FORBIDDEN, '403 Fn');
+        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Fn');
         // What are roles? Click the User
         $users = User::with('roles')->get();
 
