@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Auth;
 use Response;
 use App\Models\Document;
 use Illuminate\Http\Request;
-use App\Models\user;
+use App\Models\User;
 use App\Models\Project;
 
 
@@ -21,7 +22,10 @@ class DocumentController extends Controller
         $docs = Document::get();
         $users = User::get();
 
-        return view('documents.index', ['docs' => $docs], ['users' => $users]);
+        return view('documents.index', [
+            'docs' => $docs,
+            'users' => $users
+        ]);
     }
 
     /**
@@ -34,7 +38,10 @@ class DocumentController extends Controller
         $users = User::get();
         $projects = Project::get();
 
-        return view('documents.create' , ['users' => $users], ['projects' => $projects]);
+        return view('documents.create' , [
+            'users' => $users,
+            'projects' => $projects
+        ]);
     }
 
     /**
@@ -74,7 +81,9 @@ class DocumentController extends Controller
     public function show(Document $document)
     {
 
-        return view('documents.show', ['document' => $document]);
+        return view('documents.show', [
+            'document' => $document
+        ]);
     }
 
     /**
@@ -135,6 +144,10 @@ class DocumentController extends Controller
         return redirect(route('documents.index'));
     }
 
+    /**
+     * @param $fileName
+     * @return mixed
+     */
     public function download($fileName)
     {
         $file_path =  base_path().'/storage/app/public/files/'.$fileName;
@@ -156,8 +169,12 @@ class DocumentController extends Controller
         ]);
     }
 
-    public function search (Request $request){
-
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
+    public function search (Request $request)
+    {
         //Send an empty variable to the view, unless the if logic below changes, then it'll send a proper variable to the view.
         $results = null;
 

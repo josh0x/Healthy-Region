@@ -3,10 +3,16 @@
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Dashboard') }}
         </h2>
+
     </x-slot>
 
     <div class="container mx-auto px-4 py-20 flex justify-center">
         <div class="mt-5 md:mt-0 md:col-span-2">
+            <div>
+                <h2 class="font-bold text-3xl text-gray-800 leading-tight mt-5 md:mt-0 md:col-span-2 ">
+                    Welcome Healthy Region Database.
+                </h2>
+            </div>
 
             {{-- Search bar --}}
             <div class="w-full py-10 px-3 text-black">
@@ -38,9 +44,7 @@
                     <th scope="col" class="relative px-6 py-3">
                         <span class="sr-only">Show</span>
                     </th>
-                    <th scope="col" class="relative px-6 py-3">
-                        <span class="sr-only">Download</span>
-                    </th>
+
                 </tr>
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
