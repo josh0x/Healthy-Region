@@ -33,7 +33,6 @@ Route::resource('documents', DocumentController::class);
 Route::resource('users', UserController::class);
 Route::resource('projects', ProjectController::class);
 Route::resource('dashboards', DashboardController::class);
-
 Route::get('documents/{document}/download',[DocumentController::class, 'download'])->name('files.download');
 
 });

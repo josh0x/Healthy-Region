@@ -73,11 +73,11 @@
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                 {{$doc->created_at}}
                             </td>
-                            @can('documents_edit')
-                                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                <a href="/documents/{{$doc->id}}/edit" class="text-blue-600 hover:text-blue-900">Edit</a>
+                            <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                @can('user_access')
+                                    <a href="/documents/{{$doc->id}}/edit" class="text-blue-600 hover:text-blue-900">Edit</a>
+                                @endcan
                             </td>
-                            @endcan
 
                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                 <a href='{{$doc->path()}}' class="text-blue-600 hover:text-blue-900">Show</a>

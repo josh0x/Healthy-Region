@@ -45,7 +45,6 @@
                                     </div>
                                 </div>
                             </td>
-
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <div class="ml-4">
                                     <div class="text-sm font-medium text-gray-900">
@@ -53,10 +52,11 @@
                                     </div>
                                 </div>
                             </td>
-
-                            <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                <a href="/projects/{{$project->id}}/edit" class="text-blue-600 hover:text-blue-900">Edit</a>
-                            </td>
+                            @can('user_access')
+                                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                    <a href="/projects/{{$project->id}}/edit" class="text-blue-600 hover:text-blue-900">Edit</a>
+                                </td>
+                            @endcan
                         </tr>
                     @endforeach
                     </tbody>
@@ -73,8 +73,6 @@
                     </a>
                 </div>
             @endcan
-
-
         </div>
     </div>
 
