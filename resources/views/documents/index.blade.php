@@ -72,10 +72,11 @@
                                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                                     {{$doc->created_at}}
                                                 </td>
-
+                                                @can('user_access')
                                                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                                     <a href="/documents/{{$doc->id}}/edit" class="text-blue-600 hover:text-blue-900">Edit</a>
                                                 </td>
+                                                @endcan
 
                                                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                                     <a href='{{$doc->path()}}' class="text-blue-600 hover:text-blue-900">Show</a>
@@ -92,6 +93,7 @@
     </div>
 
     {{--Upload--}}
+            @can('user_access')
     <div class="container mx-auto px-4 py-10 flex justify-center">
         <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col my-2">
             <div class="block content-center">
@@ -102,7 +104,9 @@
                 </a>
             </div>
         </div>
-    </div></div>
+    </div>
+            @endcan
+        </div>
     </div>
 
 </x-app-layout>

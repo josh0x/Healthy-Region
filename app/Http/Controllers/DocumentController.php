@@ -1,21 +1,21 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 use Response;
 use App\Models\Document;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Project;
-
+use App\Models\Permission;
 
 class DocumentController extends Controller
 {
 
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function index()
     {
@@ -29,12 +29,11 @@ class DocumentController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function create()
     {
+        abort_if(Gate::denies('user_access'), \Illuminate\Http\Response::HTTP_FORBIDDEN, '403 Forbidden');
         $users = User::get();
         $projects = Project::get();
 
@@ -45,13 +44,12 @@ class DocumentController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function store(Request $request)
     {
+        abort_if(Gate::denies('user_access'), \Illuminate\Http\Response::HTTP_FORBIDDEN, '403 Forbidden');
         $document = Document::create($this->validateDocument($request));
 
         $document->user()->associate(User::find($request->user_id));
@@ -73,10 +71,8 @@ class DocumentController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Document  $document
-     * @return \Illuminate\Http\Response
+     * @param Document $document
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function show(Document $document)
     {
@@ -87,13 +83,12 @@ class DocumentController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Document  $document
-     * @return \Illuminate\Http\Response
+     * @param Document $document
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function edit(Document $document)
     {
+        abort_if(Gate::denies('user_access'), \Illuminate\Http\Response::HTTP_FORBIDDEN, '403 Forbidden');
         $users = User::get();
         $projects = Project::get();
         return view('documents.edit',
@@ -105,14 +100,13 @@ class DocumentController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Document  $document
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param Document $document
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function update(Request $request, Document $document)
     {
+        abort_if(Gate::denies('user_access'), \Illuminate\Http\Response::HTTP_FORBIDDEN, '403 Forbidden');
         $document->update($this->validateDocument($request));
         $document->user()->associate(User::find($request->user_id));
         $document->project()->associate(Project::find($request->project_id));
@@ -133,13 +127,12 @@ class DocumentController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Document  $document
-     * @return \Illuminate\Http\Response
+     * @param Document $document
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function destroy(Document $document)
     {
+        abort_if(Gate::denies('user_access'), \Illuminate\Http\Response::HTTP_FORBIDDEN, '403 Forbidden');
         $document->delete();
         return redirect(route('documents.index'));
     }
@@ -155,7 +148,7 @@ class DocumentController extends Controller
     }
 
 
-     /**
+    /**
      * @return array
      */
     protected function validateDocument(): array
