@@ -10,18 +10,18 @@
         <div class="mt-5 md:mt-0 md:col-span-2">
             <div>
                 <h2 class="font-bold text-3xl text-gray-800 leading-tight mt-5 md:mt-0 md:col-span-2 ">
-                    Welcome to the database of the Lectorate Healthy Region.
+                    Welcome Healthy Region Database.
                 </h2>
             </div>
+
             {{-- Search bar --}}
-            <form>
-                <div class="w-full py-10 px-3">
-                    <label class="block uppercase tracking-wide text-gray-700 text-sm font-bold mb-2" for="term">
-                        Search
-                    </label>
-                    <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="term" name="term" type="text">
-                </div>
-            </form>
+            <div class="w-full py-10 px-3 text-black">
+                <form type="get" action="{{ url('/search') }}">
+                    @csrf
+                    <input name="query"  type="search" placeholder="Search documents">
+                    <button type="submit">Search</button>
+                </form>
+            </div>
 
              <table class="min-w-full divide-y divide-gray-200">
                 <thead class="bg-gray-50">

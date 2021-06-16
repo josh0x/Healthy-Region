@@ -17,7 +17,7 @@ class Document extends Model
 
     public function path()
     {
-                return route('documents.show', $this);
+        return route('documents.show', $this);
     }
 
     function user()
