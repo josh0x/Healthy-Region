@@ -28,13 +28,13 @@ Route::middleware(['auth:sanctum', 'verified','register' => false])->get('/dashb
 })->name('dashboards');
 
 Route::group(['middleware' => 'auth'], function () {
-
 Route::resource('documents', DocumentController::class);
 Route::resource('users', UserController::class);
 Route::resource('projects', ProjectController::class);
 Route::resource('dashboards', DashboardController::class);
 
-Route::get('documents/{document}/download',[DocumentController::class, 'download'])->name('files.download');
+Route::get('/search', [DashboardController::class, 'search']);
 
+Route::get('documents/{document}/download',[DocumentController::class, 'download'])->name('files.download');
 });
 
