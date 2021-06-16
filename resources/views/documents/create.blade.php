@@ -52,12 +52,14 @@
                             <label class="block font-medium text-sm text-gray-700" for="user_id" > <a class="text-red-500">*</a> Choose an Author:</label>
 
                                 <select class=" @error('user_id') border-red-500 @enderror form-input rounded-md shadow-sm mt-1 block w-full" name="user_id" id="user_id">
-                                    <option value="{{old('user_id')}}"></option>
+                                    <option></option>
+
                                         @foreach($users as $user)
+                                        @if($user->can('user_access'))
                                     <option class="" value="{{ $user->id }}">{{$user->name}}</option>
+                                        @endif
                                         @endforeach
                                 </select>
-
                                     @if($errors->has('user_id'))
                                         <p class=" text-red-500">* Selecting an author is required</p>
                                     @endif
