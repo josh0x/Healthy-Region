@@ -10,7 +10,7 @@
         <div class="mt-5 md:mt-0 md:col-span-2">
             <div>
                 <h2 class="font-bold text-3xl text-gray-800 leading-tight mt-5 md:mt-0 md:col-span-2 ">
-                    Welcome Healthy Region Database.
+                    Welcome to Healthy Region Database.
                 </h2>
             </div>
 
