@@ -94,10 +94,6 @@ class ProjectController extends Controller
         return redirect(route('projects.index'));
     }
 
-    public function download($file)
-    {
-        //    code
-    }
 
      /**
      * @return array

@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use Response;
 use App\Models\Document;
 use Illuminate\Http\Request;
-use App\Models\user;
+use App\Models\User;
 use App\Models\Project;
 
 
@@ -22,7 +22,10 @@ class DocumentController extends Controller
         $docs = Document::get();
         $users = User::get();
 
-        return view('documents.index', ['docs' => $docs], ['users' => $users]);
+        return view('documents.index', [
+            'docs' => $docs,
+            'users' => $users
+        ]);
     }
 
     /**
@@ -32,19 +35,6 @@ class DocumentController extends Controller
      */
     public function create()
     {
-
-//        foreach (Auth::user()->roles as $auth){
-//            if ($auth->title === 'admin'){
-//                $users = User::get();
-//                $projects = Project::get();
-//
-//                return view('documents.create' , ['users' => $users], ['projects' => $projects]);
-//            }
-//            else {
-//                return redirect('documents');
-//            }
-//        }
-
         $users = User::get();
         $projects = Project::get();
 
@@ -91,7 +81,9 @@ class DocumentController extends Controller
     public function show(Document $document)
     {
 
-        return view('documents.show', ['document' => $document]);
+        return view('documents.show', [
+            'document' => $document
+        ]);
     }
 
     /**
