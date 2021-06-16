@@ -35,6 +35,9 @@ class DocumentController extends Controller
      */
     public function create()
     {
+
+        $this->authorize('create', Document::class);
+
         $users = User::get();
         $projects = Project::get();
 
@@ -52,6 +55,9 @@ class DocumentController extends Controller
      */
     public function store(Request $request)
     {
+
+        $this->authorize('create', Document::class);
+
         $document = Document::create($this->validateDocument($request));
 
         $document->user()->associate(User::find($request->user_id));
@@ -94,8 +100,12 @@ class DocumentController extends Controller
      */
     public function edit(Document $document)
     {
+
+        $this->authorize('update', $document);
+
         $users = User::get();
         $projects = Project::get();
+
         return view('documents.edit',
             [
                 'document' => $document,
@@ -113,6 +123,8 @@ class DocumentController extends Controller
      */
     public function update(Request $request, Document $document)
     {
+        $this->authorize('update', $document);
+
         $document->update($this->validateDocument($request));
         $document->user()->associate(User::find($request->user_id));
         $document->project()->associate(Project::find($request->project_id));
@@ -140,7 +152,10 @@ class DocumentController extends Controller
      */
     public function destroy(Document $document)
     {
+        $this->authorize('delete', $document);
+
         $document->delete();
+        
         return redirect(route('documents.index'));
     }
 
