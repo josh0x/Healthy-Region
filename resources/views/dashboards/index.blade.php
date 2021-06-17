@@ -40,13 +40,13 @@
                                     Date
                                     </td>
                                     <td scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    
+
                                     </td>
                                     <td scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    
+
                                     </td>
                                     <td scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    
+
                                     </td>
                                 </tr>
                             </thead>
@@ -86,7 +86,7 @@
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap">
                                             @can('user_access')
-                                            <a href="/documents/{{$doc->id}}/download" class="text-blue-600 hover:text-blue-900">Download</a>
+                                            <a href="{{ route('files.download', $doc->file) }}" class="text-blue-600 hover:text-blue-900">Download</a>
                                             @endcan
                                         </td>
                                     </tr>
