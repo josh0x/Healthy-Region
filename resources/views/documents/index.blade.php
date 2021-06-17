@@ -58,54 +58,43 @@
                                                         </div>
                                                     </div>
                                                 </td>
-
                                                 <td class="px-6 py-4 whitespace-nowrap">
                                                     <div class="text-sm text-gray-900">{{$doc->title}}</div>
                                                 </td>
-
                                                 <td class="px-6 py-4 whitespace-nowrap">
                                                     <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
                                                         {{$doc->type}}
                                                     </span>
                                                 </td>
-
                                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                                     {{$doc->created_at}}
                                                 </td>
-                                                @can('user_access')
                                                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                                    <a href="/documents/{{$doc->id}}/edit" class="text-blue-600 hover:text-blue-900">Edit</a>
+                                                    @can('user_access')
+                                                        <a href="/documents/{{$doc->id}}/edit" class="text-blue-600 hover:text-blue-900">Edit</a>
+                                                    @endcan
                                                 </td>
-                                                @endcan
-
                                                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                                     <a href='{{$doc->path()}}' class="text-blue-600 hover:text-blue-900">Show</a>
                                                 </td>
-
                                             </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
 
-    {{--Upload--}}
-            @can('user_access')
-    <div class="container mx-auto px-4 py-10 flex justify-center">
-        <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col my-2">
-            <div class="block content-center">
-                <a href="/documents/create"
-                   class="py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
-                   type="button">
-                    Upload
-                </a>
+            {{--Upload--}}
+            <div class="flex items-center justify-center px-4 py-3 bg-gray-50 text-right sm:px-6">
+                @can('user_access')
+                    <a href="/documents/create"
+                    class="py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
+                    type="button">Upload</a>
+                @endcan
             </div>
-        </div>
-    </div>
-            @endcan
         </div>
     </div>
 

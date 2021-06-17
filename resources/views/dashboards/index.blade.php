@@ -16,10 +16,13 @@
 
             {{-- Search bar --}}
             <div class="w-full py-10 px-3 text-black">
-                <form type="get" action="{{ url('/search') }}">
+                @error('title')
+                <p class="text-red-500">No search results found</p>
+                @enderror
+                <form class="block uppercase tracking-wide text-gray-700 text-sm font-bold mb-2" type="get" action="{{ url('/search') }}">
                     @csrf
-                    <input name="query"  type="search" placeholder="Search documents">
-                    <button type="submit">Search</button>
+                    <input name="title"  type="search" placeholder="Search documents" class="appearance-none block w-full bg-gray-200 text-gray-700 border @error('title') 2xl:dark:border-red-500 @enderror border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                    <button  type="submit" class="py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">Search</button>
                 </form>
             </div>
 
@@ -44,7 +47,6 @@
                     <th scope="col" class="relative px-6 py-3">
                         <span class="sr-only">Show</span>
                     </th>
-
                 </tr>
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
@@ -74,8 +76,11 @@
                                 {{$doc->created_at}}
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                <a href="/documents/{{$doc->id}}/edit" class="text-blue-600 hover:text-blue-900">Edit</a>
+                                @can('user_access')
+                                    <a href="/documents/{{$doc->id}}/edit" class="text-blue-600 hover:text-blue-900">Edit</a>
+                                @endcan
                             </td>
+
                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                 <a href='{{$doc->path()}}' class="text-blue-600 hover:text-blue-900">Show</a>
                             </td>
@@ -88,4 +93,3 @@
     </div>
 
 </x-app-layout>
-
