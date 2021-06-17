@@ -40,12 +40,11 @@
                                     </div>
                                     <div class="ml-4">
                                         <div class="text-sm font-medium text-gray-900" >
-                                            <a href='{{$project->path()}}'>{{$project->name}}</a>
+                                            {{$project->name}}
                                         </div>
                                     </div>
                                 </div>
                             </td>
-
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <div class="ml-4">
                                     <div class="text-sm font-medium text-gray-900">
@@ -53,9 +52,13 @@
                                     </div>
                                 </div>
                             </td>
-
+                            @can('user_access')
                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                 <a href="/projects/{{$project->id}}/edit" class="text-blue-600 hover:text-blue-900">Edit</a>
+                            </td>
+                            @endcan
+                            <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                <a href='{{$project->path()}}' class="text-blue-600 hover:text-blue-900">Show</a>
                             </td>
                         </tr>
                     @endforeach
@@ -66,13 +69,13 @@
             </div>
             </div>
         </div>
-
+            @can('user_access')
                 <div class="flex items-center justify-center px-4 py-3 bg-gray-50 text-right sm:px-6">
                     <a href="/projects/create" class="inline-flex items-center px-4 py-2 bg-blue-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-800 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150" type="button">
                         Create a Project
                     </a>
                 </div>
-                
+            @endcan
         </div>
     </div>
 

@@ -10,7 +10,7 @@
         <div class="mt-5 md:mt-0 md:col-span-2">
             <div>
                 <h2 class="font-bold text-3xl text-gray-800 leading-tight mt-5 md:mt-0 md:col-span-2 ">
-                    Welcome Healthy Region Database.
+                    Welcome to Healthy Region Database.
                 </h2>
             </div>
 
@@ -76,8 +76,11 @@
                                 {{$doc->created_at}}
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                <a href="/documents/{{$doc->id}}/edit" class="text-blue-600 hover:text-blue-900">Edit</a>
+                                @can('user_access')
+                                    <a href="/documents/{{$doc->id}}/edit" class="text-blue-600 hover:text-blue-900">Edit</a>
+                                @endcan
                             </td>
+
                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                 <a href='{{$doc->path()}}' class="text-blue-600 hover:text-blue-900">Show</a>
                             </td>
