@@ -26,6 +26,6 @@ class AppLogo extends Component
      */
     public function render()
     {
-        return view('components.app-logo');
+        return view('components.applogo');
     }
 }

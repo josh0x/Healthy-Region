@@ -41,7 +41,6 @@ class ProjectController extends Controller
     public function store(Project $project,Request $request)
     {
         $project->create($this->validateProject($request));
-        $project->save();
         return  redirect('projects');
     }
 
@@ -95,10 +94,6 @@ class ProjectController extends Controller
         return redirect(route('projects.index'));
     }
 
-    public function download($file)
-    {
-        //    code
-    }
 
      /**
      * @return array

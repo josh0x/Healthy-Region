@@ -22,8 +22,8 @@ class UserController extends Controller
     public function index()
     {
 
-        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-
+        abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Fn');
+        // What are roles? Click the User
         $users = User::with('roles')->get();
 
         return view('users.index', compact('users'));
@@ -39,7 +39,7 @@ class UserController extends Controller
     {
 
         abort_if(Gate::denies('user_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
-
+        // create user and assign role
         $roles = Role::pluck('title', 'id');
 
         return view('users.create', compact('roles'));
@@ -55,8 +55,8 @@ class UserController extends Controller
 
     public function store(StoreUserRequest $request)
     {
-        $user = User::create($request->validated());
-        $user->roles()->sync($request->input('roles', []));
+        $user = User::create($request->validated()); // store user
+        $user->roles()->sync($request->input('roles', [])); // sync roles ( relationship )
 
         return redirect()->route('users.index');
     }
