@@ -96,12 +96,8 @@ class DashboardController extends Controller
         $searchquery = $request['title'];
 
         $this->validateSearch($request);
-
-        if($docs = Document::where('title', 'LIKE', '%'.$searchquery.'%')->get()){
-            return view('dashboards.search', compact('docs'));
-        } else {
-            
-        };
+        $docs = Document::where('title', 'LIKE', '%'.$searchquery.'%')->get();
+        return view('dashboards.search', compact('docs'));
     }
 
 
