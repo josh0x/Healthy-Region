@@ -127,47 +127,47 @@
                                     <tbody class="bg-white divide-y divide-gray-200">
                                     @foreach($users as $user)
                                         @foreach ($user->roles as $role)
-                                        @if($role->title== 'Student')
-                                            <tr>
-                                                <td class="px-6 py-4 whitespace-nowrap">
-                                                    <div class="flex items-center">
-                                                        <div class="flex-shrink-0 h-10 w-10">
-                                                            <img src="images/hz.png" class="h-10 w-10 rounded-full" alt="">
-                                                        </div>
-                                                        <div class="ml-4">
-                                                            <div class="text-md font-medium text-gray-900">
-                                                                {{ $user->name }}
+                                            @if($role->title== 'Student')
+                                                <tr>
+                                                    <td class="px-6 py-4 whitespace-nowrap">
+                                                        <div class="flex items-center">
+                                                            <div class="flex-shrink-0 h-10 w-10">
+                                                                <img src="images/hz.png" class="h-10 w-10 rounded-full" alt="">
                                                             </div>
-                                                            <div class="text-sm text-gray-500">
-                                                                {{ $user->email }}
+                                                            <div class="ml-4">
+                                                                <div class="text-md font-medium text-gray-900">
+                                                                    {{ $user->name }}
+                                                                </div>
+                                                                <div class="text-sm text-gray-500">
+                                                                    {{ $user->email }}
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                </td>
+                                                    </td>
 
-                                                <td class="px-6 py-4 whitespace-nowrap">
-                                                    <div class="text-sm text-gray-900">Healthy Region</div>
-                                                    <div class="text-sm text-gray-500">Student</div>
-                                                </td>
+                                                    <td class="px-6 py-4 whitespace-nowrap">
+                                                        <div class="text-sm text-gray-900">Healthy Region</div>
+                                                        <div class="text-sm text-gray-500">Student</div>
+                                                    </td>
 
-                                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                                            {{ $role->title }}
-                                                        </span>
-                                                </td>
+                                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                                                                {{ $role->title }}
+                                                            </span>
+                                                    </td>
 
-                                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                                    <a href="{{ route('users.show', $user->id) }}" class="text-blue-600 hover:text-blue-900 mb-2 mr-2">View</a>
-                                                    <a href="{{ route('users.edit', $user->id) }}" class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2">Edit</a>
-                                                    <form class="inline-block" action="{{ route('users.destroy', $user->id) }}" method="POST" onsubmit="return confirm('Are you sure?');">
-                                                        <input type="hidden" name="_method" value="DELETE">
-                                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                                        <input type="submit" class="text-red-600 hover:text-red-900 mb-2 mr-2" value="Delete">
-                                                    </form>
-                                                </td>
+                                                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                                        <a href="{{ route('users.show', $user->id) }}" class="text-blue-600 hover:text-blue-900 mb-2 mr-2">View</a>
+                                                        <a href="{{ route('users.edit', $user->id) }}" class="text-indigo-600 hover:text-indigo-900 mb-2 mr-2">Edit</a>
+                                                        <form class="inline-block" action="{{ route('users.destroy', $user->id) }}" method="POST" onsubmit="return confirm('Are you sure?');">
+                                                            <input type="hidden" name="_method" value="DELETE">
+                                                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                                            <input type="submit" class="text-red-600 hover:text-red-900 mb-2 mr-2" value="Delete">
+                                                        </form>
+                                                    </td>
 
-                                            </tr>
-                                        @endif
+                                                </tr>
+                                            @endif
                                         @endforeach
                                     @endforeach
                                     <!-- More items if needed... -->

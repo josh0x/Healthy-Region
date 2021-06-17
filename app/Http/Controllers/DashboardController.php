@@ -15,7 +15,7 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $docs = Document::get();
+        $docs = Document::latest()->orderBy('created_at')->take(5)->get();
         return view('dashboards.index', compact('docs'));
 
     }
