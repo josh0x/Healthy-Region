@@ -4,11 +4,13 @@
             {{ __('Personal Documents') }}
         </h2>
     </x-slot>
+
     @if (session()->has('success'))
         <div class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
             <strong>{{ session()->get('success')}}</strong>
         </div>
     @endif
+    
     <div class="container mx-auto px-4 py-20 flex justify-center">
         <div class="shadow overflow-hidden sm:rounded-md">
             <div class="p-4 px-4 py-5 bg-white sm:p-12">

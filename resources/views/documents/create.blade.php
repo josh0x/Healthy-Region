@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Upload new document') }}
+            {{ __('Create new document') }}
         </h2>
     </x-slot>
     <div class="max-w-4xl mx-auto py-20 sm:px-6 lg:px-8 text-black">
@@ -22,7 +22,7 @@
 
                             <input class="@error('title') border-red-500 @enderror form-input rounded-md shadow-sm mt-1 block w-full" type="text" name="title" rows="2" cols="60" id="title" value="{{old('title')}}" >
                                 @if($errors->has('title'))
-                                    <p class="text-red-500">* Fill in a correct Title (minimum 5 characters)</p>
+                                    <p class="text-red-500">Fill in a correct Title (minimum 5 characters)</p>
                                 @endif
                         </div>
 
@@ -33,7 +33,7 @@
 
                             <textarea class="@error('excerpt') border-red-500 @enderror form-input rounded-md shadow-sm mt-1 block w-full" name="excerpt" rows="5" cols="60" id="excerpt"> {{old('excerpt')}} </textarea>
                                 @if($errors->has('excerpt'))
-                                    <p class="text-red-500">* Fill in a correct description (minimum 5 characters)</p>
+                                    <p class="text-red-500">Fill in a correct description (minimum 5 characters)</p>
                                 @endif
                         </div>
 
@@ -61,7 +61,7 @@
                                         @endforeach
                                 </select>
                                     @if($errors->has('user_id'))
-                                        <p class=" text-red-500">* Selecting an author is required</p>
+                                        <p class=" text-red-500">Selecting an author is required</p>
                                     @endif
                         </div>
 
@@ -86,7 +86,7 @@
                             </label>
 
                             @if($errors->has('file'))
-                                <p class=" text-red-500">* {{$errors->first('file')}}</p>
+                                <p class=" text-red-500">Choose a file to upload</p>
                             @endif
                         </div>
                 </div>
