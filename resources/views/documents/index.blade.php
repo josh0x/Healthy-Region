@@ -34,13 +34,13 @@
                                             Date
                                             </th>
                                             <th scope="col" class="relative px-6 py-3">
-                                                <span class="sr-only">Edit</span>
+                                            
                                             </th>
                                             <th scope="col" class="relative px-6 py-3">
-                                                <span class="sr-only">Show</span>
+
                                             </th>
                                             <th scope="col" class="relative px-6 py-3">
-                                                <span class="sr-only">Download</span>
+
                                             </th>
                                         </tr>
                                     </thead>
