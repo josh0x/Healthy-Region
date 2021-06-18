@@ -20,7 +20,6 @@
                             <label for="roles" class="block font-medium text-sm text-gray-700">
                                 <span> <a class="text-red-500">*</a>Role</span>
                             </label>
-<<<<<<< Updated upstream
                                 <select name="roles[]" id="roles" class="@error('roles') border-red-500 @enderror form-input rounded-md shadow-sm mt-1 block w-full" multiple="multiple">
                                     @foreach($roles as $id => $role)
                                         <option class="text-sm text-gray-700" value="{{ $id }}"{{ in_array($id, old('roles', [])) ? ' selected' : '' }}>{{ $role }}</option>
@@ -28,15 +27,6 @@
                             </select>
                             @error('roles')
                                 <p class="text-sm text-red-500">Role is required</p>
-=======
-                            <select name="roles[]" id="roles" class="@error('roles') border-red-500 @enderror form-input rounded-md shadow-sm mt-1 block w-full" multiple="multiple">
-                                @foreach($roles as $id => $role)
-                                    <option class="text-sm text-gray-700" value="{{ $id }}"{{ in_array($id, old('roles', [])) ? ' selected' : '' }}>{{ $role }}</option>
-                                @endforeach
-                            </select>
-                            @error('roles')
-                            <p class="text-sm text-red-500">Role is required</p>
->>>>>>> Stashed changes
                             @enderror
                         </div>
 
@@ -45,30 +35,18 @@
                                 <span> <a class="text-red-500">*</a>Name</span>
                             </label>
                             <input class="@error('name') border-red-500 @enderror form-input rounded-md shadow-sm mt-1 block w-full" type="text" name="name" rows="2" cols="60" id="title" value="{{old('name')}}">
-<<<<<<< Updated upstream
                                 @if($errors->has('name'))
                                     <p class="text-red-500">Name is required</p>
                                 @endif
-=======
-                            @if($errors->has('name'))
-                                <p class="text-red-500">Name is required</p>
-                            @endif
->>>>>>> Stashed changes
                         </div>
                         <div class="px-4 py-5 bg-white sm:p-6">
                             <label for="email" class="block font-medium text-sm text-gray-700">
                                 <span> <a class="text-red-500">*</a>Email</span>
                             </label>
                             <input class="@error('email') border-red-500 @enderror form-input rounded-md shadow-sm mt-1 block w-full" type="email" name="email" id="email"
-<<<<<<< Updated upstream
                                 value="{{ old('email', '') }}" />
                             @error('email')
                                 <p class="text-sm text-red-500">Email is required</p>
-=======
-                                   value="{{ old('email', '') }}" />
-                            @error('email')
-                            <p class="text-sm text-red-500">Email is required</p>
->>>>>>> Stashed changes
                             @enderror
                         </div>
                         <div class="px-4 py-5 bg-white sm:p-6">
@@ -77,22 +55,18 @@
                             </label>
                             <input type="password" name="password" id="password" class="@error('password') border-red-500 @enderror form-input rounded-md shadow-sm mt-1 block w-full" />
                             @error('password')
-<<<<<<< Updated upstream
                                 <p class="text-sm text-red-500">Password is required</p>
-=======
-                            <p class="text-sm text-red-500">Password is required</p>
->>>>>>> Stashed changes
                             @enderror
                         </div>
 
                 </div>
 
-                <div class="flex items-center justify-center px-4 py-3 bg-gray-50 text-right sm:px-6">
-                    <button class="inline-flex items-center px-4 py-2 bg-blue-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-800 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150" type="submit">
-                        Create
-                    </button>
-                </div>
-                </form>
+                            <div class="flex items-center justify-center px-4 py-3 bg-gray-50 text-right sm:px-6">
+                                <button class="inline-flex items-center px-4 py-2 bg-blue-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-800 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150" type="submit">
+                                    Create
+                                </button>
+                            </div>
+                    </form>
             </div>
         </div>
     </div>

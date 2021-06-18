@@ -51,7 +51,6 @@
                     <button type="submit" name="submit" class="py-1.5 px-3.5 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">Upload</button>
                 </div>
 
-<<<<<<< Updated upstream
                 </form>
 
                 <div class="container mx-auto px-4  flex justify-center text-black">
@@ -61,17 +60,6 @@
                         <button type="submit" name="submit" class="py-1.5 px-3.5 bg-red-500 text-white font-semibold  rounded-lg shadow-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-opacity-75">Delete</button>
                     </form>
                 </div>
-=======
-            </form>
-
-            <div class="container mx-auto px-4  flex justify-center text-black">
-                <form class="mt-1 flex items-center justify-center" method="POST" action="/projects/{{$project->id}}">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" name="submit" class="py-1.5 px-3.5 bg-red-500 text-white font-semibold  rounded-lg shadow-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-opacity-75">Delete</button>
-                </form>
-            </div>
->>>>>>> Stashed changes
         </div>
     </div>
 

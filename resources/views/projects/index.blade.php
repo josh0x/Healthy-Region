@@ -15,7 +15,6 @@
                                 <table class="min-w-full divide-y divide-gray-200">
                                     {{-- column headers --}}
                                     <thead class="bg-gray-50">
-<<<<<<< Updated upstream
                                         <tr>
                                             <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                             Project Name
@@ -64,56 +63,6 @@
                                                 </td>
                                             </tr>
                                         @endforeach
-=======
-                                    <tr>
-                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            Project Name
-                                        </th>
-                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            Date
-                                        </th>
-                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-
-                                        </th>
-                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-
-                                        </th>
-                                    </tr>
-                                    </thead>
-                                    {{-- body of table --}}
-                                    <tbody class="bg-white divide-y divide-gray-200">
-                                    @foreach($projects as $project)
-                                        <tr>
-                                            <td class="px-6 py-4 whitespace-nowrap">
-                                                <div class="flex items-center">
-                                                    <div class="flex-shrink-0 h-10 w-10">
-                                                        <img src="images/hz.png" class="h-10 w-10 rounded-full" alt="">
-                                                    </div>
-                                                    <div class="ml-4">
-                                                        <div class="text-sm font-medium text-gray-900" >
-                                                            {{$project->name}}
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td class="px-6 py-4 whitespace-nowrap">
-                                                <div class="ml-4">
-                                                    <div class="text-sm font-medium text-gray-900">
-                                                        {{$project->created_at}}
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            @can('user_access')
-                                                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                                    <a href="/projects/{{$project->id}}/edit" class="text-blue-600 hover:text-blue-900">Edit</a>
-                                                </td>
-                                            @endcan
-                                            <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                                <a href='{{$project->path()}}' class="text-blue-600 hover:text-blue-900">Show</a>
-                                            </td>
-                                        </tr>
-                                    @endforeach
->>>>>>> Stashed changes
                                     </tbody>
                                 </table>
                             </div>
@@ -121,7 +70,6 @@
                     </div>
                 </div>
             </div>
-<<<<<<< Updated upstream
                     @can('user_access')
                         <div class="flex items-center justify-center px-4 py-3 bg-gray-50 text-right sm:px-6">
                             <a href="/projects/create" class="inline-flex items-center px-4 py-2 bg-blue-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-800 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150" type="button">
@@ -129,16 +77,8 @@
                             </a>
                         </div>
                     @endcan
-=======
-            @can('user_access')
-                <div class="flex items-center justify-center px-4 py-3 bg-gray-50 text-right sm:px-6">
-                    <a href="/projects/create" class="inline-flex items-center px-4 py-2 bg-blue-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-800 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150" type="button">
-                        Create a Project
-                    </a>
-                </div>
-            @endcan
->>>>>>> Stashed changes
         </div>
     </div>
 
 </x-app-layout>
+
