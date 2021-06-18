@@ -11,6 +11,7 @@
             @csrf
             @method('PUT')
 
+<<<<<<< Updated upstream
                 <div class="mt-10 bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col my-2 text- ck">
                     <label class="mt-6 block">
                         <div class="mt-2 flex justify-center text-lg font-bold text-gray-700">
@@ -25,28 +26,59 @@
                             @if($errors->has('title'))
                             <p class="text-red-500">Fill in a correct name (minimum 5 characters)</p>
                             @endif
+=======
+            <div class="mt-10 bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col my-2 text- ck">
+                <label class="mt-6 block">
+                    <div class="mt-2 flex justify-center text-lg font-bold text-gray-700">
+                        <h1>Note: All fields with <a class="text-red-500">*</a> are mandatory to be filled in.</h1>
+                    </div>
+
+                    <div class="mt-6">
+                        <label class="block font-medium text-sm text-gray-700">
+                            <span> <a class="text-red-500">*</a>Name</span>
+                        </label>
+                        <input class="@error('title') border-red-500 @enderror form-input rounded-md shadow-sm mt-1 block w-full" type="text" name="title" rows="2" cols="60" id="title" value="{{$document->title}}">
+                        @if($errors->has('title'))
+                            <p class="text-red-500">Fill in a correct name (minimum 5 characters)</p>
+                        @endif
+>>>>>>> Stashed changes
                         <div class="mt-6">
                             <label class="block font-medium text-sm text-gray-700">
                                 <span> <a class="text-red-500">*</a>Description</span>
                             </label>
                             <textarea class="@error('excerpt') border-red-500 @enderror form-input rounded-md shadow-sm mt-1 block w-full" name="excerpt" rows="5" cols="60" id="excerpt"> {{$document->excerpt}} </textarea>
+<<<<<<< Updated upstream
                                 @if($errors->has('excerpt'))
                                     <p class="text-red-500">Fill in a correct description (minimum 5 characters)</p>
                                 @endif
+=======
+                            @if($errors->has('excerpt'))
+                                <p class="text-red-500">Fill in a correct description (minimum 5 characters)</p>
+                            @endif
+>>>>>>> Stashed changes
                         </div>
 
                         <div class="mt-6">
                             <label class="block font-medium text-sm text-gray-700"><a class="text-red-500">*</a> Choose the type:</label>
 
+<<<<<<< Updated upstream
                                 <select class="form-input rounded-md shadow-sm mt-1 block w-full" name="type" id="type">
                                     <option value="questionnaire">Questionnaire</option>
                                     <option value="survey">Survey</option>
                                     <option value="research protocol">Research Protocol</option>
                                 </select>
+=======
+                            <select class="form-input rounded-md shadow-sm mt-1 block w-full" name="type" id="type">
+                                <option value="questionnaire">Questionnaire</option>
+                                <option value="survey">Survey</option>
+                                <option value="research protocol">Research Protocol</option>
+                            </select>
+>>>>>>> Stashed changes
                         </div>
 
                         <div class="mt-6">
                             <label class="block font-medium text-sm text-gray-700" for="user_id" > <a class="text-red-500">*</a> Choose an Author:</label>
+<<<<<<< Updated upstream
                                 <select class=" @error('user_id') border-red-500 @enderror form-input rounded-md shadow-sm mt-1 block w-full" name="user_id" id="user_id">
                                     <option></option>
                                         @foreach($users as $user)
@@ -58,16 +90,38 @@
                                     @if($errors->has('user_id'))
                                         <p class="text-red-500">Selecting an author is required</p>
                                     @endif
+=======
+                            <select class=" @error('user_id') border-red-500 @enderror form-input rounded-md shadow-sm mt-1 block w-full" name="user_id" id="user_id">
+                                <option></option>
+                                @foreach($users as $user)
+                                    @if($user->can('user_access'))
+                                        <option class="" value="{{ $user->id }}">{{$user->name}}</option>
+                                    @endif
+                                @endforeach
+                            </select>
+                            @if($errors->has('user_id'))
+                                <p class="text-red-500">Selecting an author is required</p>
+                            @endif
+>>>>>>> Stashed changes
                         </div>
 
                         <div class="mt-6">
                             <label class="block font-medium text-sm text-gray-700" for="project_id" >Choose the Project:</label>
+<<<<<<< Updated upstream
                                 <select class="form-input rounded-md shadow-sm mt-1 block w-full" name="project_id" id="project_id">
                                     <option value="0"></option>
                                         @foreach($projects as $project)
                                             <option value="{{ $project->id }}">{{$project->name}}</option>
                                         @endforeach
                                 </select>
+=======
+                            <select class="form-input rounded-md shadow-sm mt-1 block w-full" name="project_id" id="project_id">
+                                <option value="0"></option>
+                                @foreach($projects as $project)
+                                    <option value="{{ $project->id }}">{{$project->name}}</option>
+                                @endforeach
+                            </select>
+>>>>>>> Stashed changes
                         </div>
 
                         <div class="mt-10 flex items-center justify-center bg-grey-lighter">
@@ -82,6 +136,7 @@
                                 <p class=" text-red-500">You didn't select a file</p>
                             @endif
                         </div>
+<<<<<<< Updated upstream
 
         </form>
 
@@ -97,6 +152,23 @@
     
             </div>
         </form>
+=======
+
+        </form>
+
+        <div class="mt-6 flex items-center justify-center">
+            <button type="submit" name="submit" class="py-1.5 px-3.5 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">Update</button>
+
+            <form method="POST" action="/documents/{{$document->id}}">
+                @csrf
+                @method('DELETE')
+                <button type="submit" name="submit" class="py-1.5 px-3.5 bg-red-500 text-white font-semibold rounded-lg shadow-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-opacity-75">Delete</button>
+            </form>
+        </div>
+
+    </div>
+    </form>
+>>>>>>> Stashed changes
     </div>
 
 </x-app-layout>

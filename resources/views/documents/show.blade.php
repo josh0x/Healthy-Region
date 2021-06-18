@@ -2,7 +2,7 @@
 
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-           "{{$document->title}}"
+            "{{$document->title}}"
         </h2>
     </x-slot>
 
@@ -24,9 +24,19 @@
                     </div>
 
 
+<<<<<<< Updated upstream
     <div class="container mx-auto px-4 py-20 flex justify-center">
         <a href="{{ route('files.download', $document->file) }}"><button class="py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">Download</button></a>
     </div>
 
+=======
+                    <div class="container mx-auto px-4 py-20 flex justify-center">
+                        <a href="{{ route('files.download', $document->file) }}"><button class="py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">Download</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+>>>>>>> Stashed changes
 
 </x-app-layout>
