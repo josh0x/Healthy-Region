@@ -27,8 +27,6 @@
     <div class="container mx-auto px-4 py-20 flex justify-center">
         <a href="{{ route('files.download', $document->file) }}"><button class="py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">Download</button></a>
     </div>
-    <div class="container mx-auto px-4 py-20 flex justify-center">
-        <iframe src="http://192.168.1.193:8080/{{$document->file}}" class="align-middle mx-auto w-6/12 border-blue-400 border-8" height="500 cm"></iframe>
-    </div>
+
 
 </x-app-layout>

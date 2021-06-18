@@ -5,9 +5,8 @@
         </h2>
     </x-slot>
 
-    <div class="container mx-auto px-4 py-20 flex justify-center">
+    <div class="max-w-4xl mx-auto py-20 sm:px-6 lg:px-8 text-black">
         <div class="mt-5 md:mt-0 md:col-span-2">
-
             <table class="min-w-full divide-y divide-gray-200">
                 <thead class="bg-gray-50">
                 <tr>
@@ -43,8 +42,8 @@
                                     <div class="text-sm font-medium text-gray-900">
                                         {{$doc->user->name}}
                                     </div>
-                                    <div class="text-sm text-gray-500">
-                                    </div>
+                                </div>
+                            </div>
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
                             <div class="text-sm text-gray-900">{{$doc->title}}</div>
@@ -57,12 +56,19 @@
                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                             {{$doc->created_at}}
                         </td>
-                        <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                            <a href="/documents/{{$doc->id}}/edit" class="text-blue-600 hover:text-blue-900">Edit</a>
-                        </td>
+                        @can('user_access')
+                            <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                <a href="/documents/{{$doc->id}}/edit" class="text-blue-600 hover:text-blue-900">Edit</a>
+                            </td>
+                        @endcan
                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                             <a href='{{$doc->path()}}' class="text-blue-600 hover:text-blue-900">Show</a>
                         </td>
+                        @can('user_access')
+                        <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                            <a href='{{$doc->path()}}' class="text-blue-600 hover:text-blue-900">Download</a>
+                        </td>
+                        @endcan
                     </tr>
                 @endforeach
                 </tbody>
