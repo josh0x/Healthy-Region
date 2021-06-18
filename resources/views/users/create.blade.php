@@ -17,14 +17,16 @@
                         </div>
 
                         <div class="px-4 py-5 bg-white sm:p-6">
-                            <label for="roles" class="block font-medium text-sm text-gray-700">Role</label>
-                                <select name="roles[]" id="roles" class="form-input rounded-md shadow-sm mt-1 block w-full" multiple="multiple">
+                            <label for="roles" class="block font-medium text-sm text-gray-700">
+                                <span> <a class="text-red-500">*</a>Role</span>
+                            </label>
+                                <select name="roles[]" id="roles" class="@error('roles') border-red-500 @enderror form-input rounded-md shadow-sm mt-1 block w-full" multiple="multiple">
                                     @foreach($roles as $id => $role)
                                         <option class="text-sm text-gray-700" value="{{ $id }}"{{ in_array($id, old('roles', [])) ? ' selected' : '' }}>{{ $role }}</option>
                                     @endforeach
                             </select>
                             @error('roles')
-                                <p class="text-sm text-red-500">{{ $message }}</p>
+                                <p class="text-sm text-red-500">Role is required</p>
                             @enderror
                         </div>
 
@@ -34,24 +36,26 @@
                             </label>
                             <input class="@error('name') border-red-500 @enderror form-input rounded-md shadow-sm mt-1 block w-full" type="text" name="name" rows="2" cols="60" id="title" value="{{old('name')}}">
                                 @if($errors->has('name'))
-                                    <p class="text-red-500">* Fill in a correct name (minimum 5 characters)</p>
+                                    <p class="text-red-500">Name is required</p>
                                 @endif
                         </div>
-
                         <div class="px-4 py-5 bg-white sm:p-6">
-                            <label for="email" class="block font-medium text-sm text-gray-700">Email</label>
-                            <input type="email" name="email" id="email" class="form-input rounded-md shadow-sm mt-1 block w-full"
+                            <label for="email" class="block font-medium text-sm text-gray-700">
+                                <span> <a class="text-red-500">*</a>Email</span>
+                            </label>
+                            <input class="@error('email') border-red-500 @enderror form-input rounded-md shadow-sm mt-1 block w-full" type="email" name="email" id="email"
                                 value="{{ old('email', '') }}" />
                             @error('email')
-                                <p class="text-sm text-red-500">{{ $message }}</p>
+                                <p class="text-sm text-red-500">Email is required</p>
                             @enderror
                         </div>
-
                         <div class="px-4 py-5 bg-white sm:p-6">
-                            <label for="password" class="block font-medium text-sm text-gray-700">Password</label>
-                            <input type="password" name="password" id="password" class="form-input rounded-md shadow-sm mt-1 block w-full" />
+                            <label for="password" class="block font-medium text-sm text-gray-700">
+                                <span> <a class="text-red-500">*</a>Password</span>
+                            </label>
+                            <input type="password" name="password" id="password" class="@error('password') border-red-500 @enderror form-input rounded-md shadow-sm mt-1 block w-full" />
                             @error('password')
-                                <p class="text-sm text-red-500">{{ $message }}</p>
+                                <p class="text-sm text-red-500">Password is required</p>
                             @enderror
                         </div>
 

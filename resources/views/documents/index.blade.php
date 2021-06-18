@@ -4,11 +4,13 @@
             {{ __('Personal Documents') }}
         </h2>
     </x-slot>
+
     @if (session()->has('success'))
         <div class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
             <strong>{{ session()->get('success')}}</strong>
         </div>
     @endif
+
     <div class="container mx-auto px-4 py-20 flex justify-center">
         <div class="shadow overflow-hidden sm:rounded-md">
             <div class="p-4 px-4 py-5 bg-white sm:p-12">
@@ -18,29 +20,29 @@
                             <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                                 <table class="min-w-full divide-y divide-gray-200">
                                     <thead class="bg-gray-50">
-                                    <tr>
-                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                        Author
-                                        </th>
-                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                        Title
-                                        </th>
-                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                        Type
-                                        </th>
-                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                        Date
-                                        </th>
-                                        <th scope="col" class="relative px-6 py-3">
-                                            <span class="sr-only">Edit</span>
-                                        </th>
-                                        <th scope="col" class="relative px-6 py-3">
-                                            <span class="sr-only">Show</span>
-                                        </th>
-                                        <th scope="col" class="relative px-6 py-3">
-                                            <span class="sr-only">Download</span>
-                                        </th>
-                                    </tr>
+                                        <tr>
+                                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                            Author
+                                            </th>
+                                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                            Title
+                                            </th>
+                                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                            Type
+                                            </th>
+                                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                            Date
+                                            </th>
+                                            <th scope="col" class="relative px-6 py-3">
+                                            
+                                            </th>
+                                            <th scope="col" class="relative px-6 py-3">
+
+                                            </th>
+                                            <th scope="col" class="relative px-6 py-3">
+
+                                            </th>
+                                        </tr>
                                     </thead>
                                     {{-- body of table --}}
                                     <tbody class="bg-white divide-y divide-gray-200">
@@ -76,6 +78,11 @@
                                                 </td>
                                                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                                     <a href='{{$doc->path()}}' class="text-blue-600 hover:text-blue-900">Show</a>
+                                                </td>
+                                                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                                    @can('user_access')
+                                                        <a href="{{ route('files.download', $doc->file) }}" class="text-blue-600 hover:text-blue-900">Download</a>
+                                                    @endcan
                                                 </td>
                                             </tr>
                                         @endforeach
