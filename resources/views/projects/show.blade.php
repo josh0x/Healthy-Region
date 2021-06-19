@@ -1,13 +1,17 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+        <h2 class="font-bold text-3xl text-gray-800 leading-tight">
             Project: "{{$project->name}}"
         </h2>
     </x-slot>
 
     <div class="container mx-auto px-4 py-10 flex justify-center">
         <div class="shadow overflow-hidden sm:rounded-md">
+            <div class="text-xl font-bold text-black shadow overflow-hidden border-b border-gray-600 sm:rounded-lg mb-3">
+                <h1>{{$project->overview}}</h1>
+            </div>
             <div class="p-4 px-4 py-5 bg-white sm:p-12">
+
                 {{-- table --}}
                 <div class="flex flex-col text-black">
                     <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
