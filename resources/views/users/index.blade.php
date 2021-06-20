@@ -122,7 +122,7 @@
                                     <tbody class="bg-white divide-y divide-gray-200">
                                     @foreach($users as $user)
                                         @foreach ($user->roles as $role)
-                                            @if($role->title== 'Student')
+                                            @if($role->title== 'Guest')
                                                 <tr>
                                                     <td class="px-6 py-4 whitespace-nowrap">
                                                         <div class="flex items-center">
