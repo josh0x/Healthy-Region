@@ -45,6 +45,7 @@
                                     <option value="questionnaire">Questionnaire</option>
                                     <option value="survey">Survey</option>
                                     <option value="research protocol">Research Protocol</option>
+                                    <option value="others">Others</option>
                                 </select>
                         </div>
 

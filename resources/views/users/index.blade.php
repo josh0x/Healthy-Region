@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Researchers') }}
+            {{ __('Users') }}
         </h2>
     </x-slot>
 
@@ -92,7 +92,7 @@
                         </div>
                     </div>
                 </div>
-          
+
 
                 <div class="py-16 flex flex-col">
                     <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -122,7 +122,7 @@
                                     <tbody class="bg-white divide-y divide-gray-200">
                                     @foreach($users as $user)
                                         @foreach ($user->roles as $role)
-                                            @if($role->title== 'Student')
+                                            @if($role->title== 'Guest')
                                                 <tr>
                                                     <td class="px-6 py-4 whitespace-nowrap">
                                                         <div class="flex items-center">
@@ -142,7 +142,7 @@
 
                                                     <td class="px-6 py-4 whitespace-nowrap">
                                                         <div class="text-sm text-gray-900">Healthy Region</div>
-                                                        <div class="text-sm text-gray-500">Student</div>
+                                                        <div class="text-sm text-gray-500">Guest</div>
                                                     </td>
 
                                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
