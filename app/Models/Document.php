@@ -9,9 +9,11 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 class Document extends Model
 {
     use HasFactory;
+
     protected $guarded=[];
 
       protected $fillable = [
+
         'id', 'title', 'excerpt', 'type', 'file'
     ];
 
@@ -34,7 +36,4 @@ class Document extends Model
     {
         return $this->belongsTo(Dashboard::class); // select * from researcher where document_id =
     }
-
-
-
 }
