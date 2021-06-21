@@ -37,6 +37,7 @@
 
                         <div class="mt-6">
                             <label class="block font-medium text-sm text-gray-700"><a class="text-red-500">*</a> Choose the type:</label>
+<<<<<<< Updated upstream
                                 <select class="form-input rounded-md shadow-sm mt-1 block w-full" name="type" id="type">
                                     <option value="Questionnaire">Questionnaire</option>
                                     <option value="Survey">Survey</option>
@@ -45,6 +46,15 @@
                                     <option value="Article">Article</option>
                                     <option value="Others">Others</option>
                                 </select>
+=======
+
+                            <select class="form-input rounded-md shadow-sm mt-1 block w-full" name="type" id="type">
+                                <option value="questionnaire">Questionnaire</option>
+                                <option value="survey">Survey</option>
+                                <option value="research protocol">Research Protocol</option>
+                                <option value="others">Others</option>
+                            </select>
+>>>>>>> Stashed changes
                         </div>
 
                         <div class="mt-6">
@@ -89,14 +99,14 @@
 
                 <div class="mt-6 flex items-center justify-center">
                     <button type="submit" name="submit" class="py-1.5 px-3.5 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">Update</button>
-    
+
                     <form method="POST" action="/documents/{{$document->id}}">
                     @csrf
                     @method('DELETE')
                         <button type="submit" name="submit" class="py-1.5 px-3.5 bg-red-500 text-white font-semibold rounded-lg shadow-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-opacity-75">Delete</button>
                     </form>
                 </div>
-    
+
             </div>
         </form>
     </div>
