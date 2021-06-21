@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Personal Documents') }}
+            {{ __('Documents') }}
         </h2>
     </x-slot>
 
@@ -34,7 +34,7 @@
                                             Date
                                             </th>
                                             <th scope="col" class="relative px-6 py-3">
-                                            
+
                                             </th>
                                             <th scope="col" class="relative px-6 py-3">
 
