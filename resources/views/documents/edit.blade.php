@@ -37,11 +37,13 @@
 
                         <div class="mt-6">
                             <label class="block font-medium text-sm text-gray-700"><a class="text-red-500">*</a> Choose the type:</label>
-
                                 <select class="form-input rounded-md shadow-sm mt-1 block w-full" name="type" id="type">
-                                    <option value="questionnaire">Questionnaire</option>
-                                    <option value="survey">Survey</option>
-                                    <option value="research protocol">Research Protocol</option>
+                                    <option value="Questionnaire">Questionnaire</option>
+                                    <option value="Survey">Survey</option>
+                                    <option value="Research protocol">Research Protocol</option>
+                                    <option value="Presentation">Presentation</option>
+                                    <option value="Article">Article</option>
+                                    <option value="Others">Others</option>
                                 </select>
                         </div>
 
