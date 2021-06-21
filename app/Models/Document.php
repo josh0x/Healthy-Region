@@ -10,7 +10,7 @@ class Document extends Model
 {
     use HasFactory;
     protected $guarded=[];
-  
+
       protected $fillable = [
         'id', 'title', 'excerpt', 'type', 'file'
     ];
@@ -27,7 +27,7 @@ class Document extends Model
 
     public function project()
     {
-        return $this->belongsTo(project::class); // select * from researcher where document_id =
+        return $this->belongsTo(Project::class); // select * from researcher where document_id =
     }
 
     function dashboard()
