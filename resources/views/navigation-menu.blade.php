@@ -29,7 +29,7 @@
                 @can('user_access')
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex hover:bg-blue-300" >
                     <x-jet-nav-link style="color: white" href="{{ route('users.index') }}" :active="request()->routeIs('users.*')">
-                        {{ __('Researchers') }}
+                        {{ __('Users') }}
                     </x-jet-nav-link>
                 </div>
                 @endcan
