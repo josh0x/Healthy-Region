@@ -9,9 +9,11 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 class Document extends Model
 {
     use HasFactory;
-    protected $guarded = [];
 
-    protected $fillable = [
+    protected $guarded=[];
+
+      protected $fillable = [
+
         'id', 'title', 'excerpt', 'type', 'file'
     ];
 
