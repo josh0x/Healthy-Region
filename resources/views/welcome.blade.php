@@ -131,11 +131,11 @@
             <h1>Healthy Region</h1>
                 @if (Route::has('login'))
                     <div class="container mx-auto px-2 py-5 flex justify-center">
-                        @auth
+                        {{-- @auth --}}
                             <a href="{{ url('/dashboards') }}" class="text-md text-white-700 underline">Dashboard</a>
                                 @else
                                     <a href="{{ route('login') }}" class="text-md text-white-700 underline">Log in</a>
-                        @endauth
+                        {{-- @endauth --}}
                     </div>
                 @endif
                         </div>
