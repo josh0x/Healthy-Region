@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Models\Document;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -10,7 +9,6 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
-
 
 class User extends Authenticatable
 {
@@ -23,7 +21,7 @@ class User extends Authenticatable
     /**
      * The attributes that are mass assignable.
      *
-     * @var array
+     * @var string[]
      */
     protected $fillable = [
         'name',
@@ -32,7 +30,7 @@ class User extends Authenticatable
     ];
 
     /**
-     * The attributes that should be hidden for arrays.
+     * The attributes that should be hidden for serialization.
      *
      * @var array
      */
@@ -44,7 +42,7 @@ class User extends Authenticatable
     ];
 
     /**
-     * The attributes that should be cast to native types.
+     * The attributes that should be cast.
      *
      * @var array
      */
@@ -60,32 +58,4 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
-
-    public function documents(): \Illuminate\Database\Eloquent\Relations\HasMany
-    {
-
-    return $this->hasMany(Document::class); // Selecet * from documents where researcher_id = (current_id)
-
-    }
-
-    public function project(): \Illuminate\Database\Eloquent\Relations\HasMany
-    {
-        return $this->hasMany(Project::class); // Selecet * from documents where researcher_id = (current_id)
-    }
-
-    public function __construct(array $attributes = [])
-    {
-        parent::__construct($attributes);
-        self::created(function (User $user) {
-            if (!$user->roles()->get()->contains(2)) {
-                $user->roles()->attach(2);
-            }
-        });
-    }
-
-    public function roles()
-    {
-        // Role model
-        return $this->belongsToMany(Role::class); // many relationship
-    }
 }
